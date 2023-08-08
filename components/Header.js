@@ -110,80 +110,80 @@ useEffect(() => {
 
   return (
     <>
+ <div className="StyledHeader">
+<div className="center">
+  <div className="wrapper">
+<span className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium" href={'/'}>Ecommerce</span>
+<div className="flex gap-4">
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/'}>Home</Link>
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/products'}>All Product</Link>
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/categories'}>Categories</Link>
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/login'}>Account</Link>
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/cart'}>Cart ({cartProducts.length})</Link>
 
 
 
-
-
-      <StyledHeader>
-        <Center>
-          <Wrapper>
-        <Logo className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium" href={'/'}>Ecommerce</Logo>
-        <StyledNav>
-        <NavLink className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/'}>Home</NavLink>
-        <NavLink className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/products'}>All Product</NavLink>
-        <NavLink className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/categories'}>Categories</NavLink>
-        <NavLink className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/login'}>Account</NavLink>
-        <NavLink className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/cart'}>Cart ({cartProducts.length})</NavLink>
-      
-
- 
 <div className="z-1 " ref={menuRef}>
 <div className="flex ">
 <button id="dropdownInformationButton" onClick={()=>{setOpen(!open)}} data-dropdown-toggle="dropdownInformation" className="" type="button">
 <Image
-      src={profilepic}
-      alt="Picture of the author"
-      width={30} 
-      height={30} 
-      className="rounded-full"
-      // blurDataURL="data:..." automatically provided
-      placeholder="blur" 
-    />
-   <svg className="w-3.5 h-3.5 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-  </svg></button>
-  </div>
- 
+src={profilepic}
+alt="Picture of the author"
+width={30} 
+height={30} 
+className="rounded-full"
+// blurDataURL="data:..." automatically provided
+// placeholder="blur" 
+/>
+<svg className="w-3.5 h-3.5 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+<path stroke="currentColor" strokeLinecap="" strokeLinejoin="" strokeWidth="0" d="m1 1 4 4 4-4"/>
+</svg>
+</button>
 </div>
 
-        </StyledNav>
-        
-        </Wrapper>
-        <div  className={`dropdown-menu ${open? 'active' : 'inactive'} ml-[85%]`}>
-    <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-      <div>{data?.user.name ? data?.user.name : ' Hello,'}</div>
-      <div className="font-medium truncate" >{data?.user.email ? data?.user.email : ' please log in'}</div>
-    </div>
-    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-      <li>
-        <Link href={"/login"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray">Dashboard</Link>
-      </li>
-      <li>
-        <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</Link>
-      </li>
-      <li>
-        <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</Link>
-      </li>
-    </ul>
-    <div className="py-2">
-      <span  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-      {data?.user ? (
-    <span className="text-gray-400 text-l cursor-pointer" onClick={() => signOut()}>Logout</span>
+</div>
 
-  ):
-  (
+</div>
+
+</div>
+<div  className={`dropdown-menu ${open? 'active' : 'inactive'} ml-[85%]`}>
+<div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+<div>{data?.user.name ? data?.user.name : ' Hello,'}</div>
+<div className="font-medium truncate" >{data?.user.email ? data?.user.email : ' please log in'}</div>
+</div>
+<ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
+<li>
+<Link href={"/login"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray">Dashboard</Link>
+</li>
+<li>
+<Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</Link>
+</li>
+<li>
+<Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</Link>
+</li>
+</ul>
+<div className="py-2">
+<span  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+{data?.user ? (
+<span className="text-gray-400 text-l cursor-pointer" onClick={() => signOut()}>Logout</span>
+
+):
+(
 <Link href={'/login'} className="text-gray-400 text-l cursor-pointer text-white">Login</Link>
 
-  )
-  }
-      </span>
-    </div>
+)
+}
+</span>
 </div>
-        
-        </Center>
-      
-      </StyledHeader>
+</div>
+
+</div>
+
+</div> 
+
+
+
+     
       
   
       
