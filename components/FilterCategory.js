@@ -2,7 +2,7 @@
 import React from 'react'
 import { useFilterContext } from './Filter_context';
 
-export default function FilterCategory() {
+export default function   FilterCategory() {
 
     const { categories , name,updateFilterValue} = useFilterContext();
 
@@ -29,7 +29,7 @@ export default function FilterCategory() {
     <ul className='ml-8 p-2 '  >
         <li className='text-gray-600 hover:text-green-600'><button type="button"  name='category' onClick={updateFilterValue}>All</button></li>
    {categories.map((curElem,index)=> {
-        return  <li className='mt-1 text-gray-600 hover:text-green-600 active:text-red-600'><button key={index} type="button" value={curElem._id} name='category' onClick={updateFilterValue}>{curElem.name}</button></li>
+        return  <li className='mt-1 text-gray-600 hover:text-green-600 active:text-red-600 ' key={index}><button key={index} type="button" value={curElem._id} name='category' onClick={updateFilterValue}>{curElem.name}</button></li>
     })
 
    }
