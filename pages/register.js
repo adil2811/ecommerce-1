@@ -1,5 +1,6 @@
 "use client";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import axios from "axios";
 import React, { useState } from "react";
 
@@ -26,6 +27,7 @@ const Register = () => {
 
   return (
     <>
+    <Header/>
      <form
             className="border border-secondary rounded p-4"
             onSubmit={submitHandler}
