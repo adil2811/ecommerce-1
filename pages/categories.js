@@ -7,8 +7,6 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "/models/Product";
 import { useState, useEffect } from "react";
 import { useFilterContext } from "@/components/Filter_context";
-
-import axios from "axios";
 import Sort from "@/components/Sort";
 import Footer from "@/components/Footer";
 
