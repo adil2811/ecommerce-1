@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFilterContext } from './Filter_context'
 import Link from 'next/link'
 
 export default function List({price,images,title,_id}) {
