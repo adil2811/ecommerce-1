@@ -9,9 +9,7 @@ import { CartContext } from "/components/Cartcontexts";
 import { signOut, useSession } from "next-auth/react";
 import profilepic from "/Users/adilshiakh/Desktop/images ecommerce/userimg/user.jpg"
 import React, {useState, useEffect, useRef} from 'react';
-import { useRouter } from "next/router";
 
-import DropDownMenu from "./DropDownMenu";
 
 
 
