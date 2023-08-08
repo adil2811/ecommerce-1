@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 // banke hawa mai
-export default function Cart() {
+export default function cart() {
   const { cartProducts, addProduct, removeProduct,clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
@@ -102,9 +102,9 @@ export default function Cart() {
                 </thead>
                 <tbody>
                   {products.map((product) => (
-                    <tr>
+                    <tr key={product._id} >
                       <td>
-                        <div className="productimagebox">
+                        <div  className="productimagebox">
                           <img src={product.images[0]} alt="" />
                         </div>
                         {product.title}
