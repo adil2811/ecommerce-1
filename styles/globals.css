@@ -274,4 +274,19 @@ flex-wrap: wrap;
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.1fr;
 }
+.StyledHeader {
+  background-color: #222;
+  height: 100px;
 
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.NavLink {
+  display: block;
+color:#aaa;
+text-decoration:none;
+padding: 10px 0;
+}
