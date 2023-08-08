@@ -11,7 +11,7 @@ export default function Sort() {
         <div className='text-gray-600'>Total Search results {filter_products.length}</div>
         <div className='ml-[30%] text-gray-800'>
             <form action="#">
-                <lable htmlFor="sort"></lable>
+                {/* <lable htmlFor="sort">sort</lable> */}
                 <select name="sort" id="sort" onChange={sorting}>
                 <option value="recent" >recent item</option>
 
