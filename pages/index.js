@@ -3,8 +3,6 @@ import Header from '@/components/Header'
 import Newproducts from '/components/Newproducts';
 import { mongooseConnect } from '@/lib/mongoose';
 import { Product } from '/models/Product';
-import React, { useEffect, useState } from 'react'
-
 import { FilterContextProvider } from '@/components/Filter_context';
 import { SessionProvider } from 'next-auth/react';
 import Footer from '@/components/Footer';
