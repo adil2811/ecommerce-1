@@ -5,14 +5,16 @@ import Searchbar1 from "@/components/Searchbar1";
 import List from "@/components/List";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "/models/Product";
-import { useState, useEffect } from "react";
+import React, { useState } from "react"; // Import React and useState
 import { useFilterContext } from "@/components/Filter_context";
 import Sort from "@/components/Sort";
 import Footer from "@/components/Footer";
 
-export default function categories({ Filterproducts, Newproducts }) {
+export default function Categories({ Filterproducts, Newproducts }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories,setCategories] = useState([])
+  
+  
   const { filter_products } = useFilterContext();
 
   console.log(filter_products)
@@ -47,16 +49,16 @@ export default function categories({ Filterproducts, Newproducts }) {
   );
 }
 
-export async function getServerSideProps() {
-  await mongooseConnect();
+// export async function getServerSideProps() {
+//   await mongooseConnect();
 
-  const Filterproducts = await Product.find({}, null, { sort: { _id: -1 } });
-  const Newproducts = await Product.find({}, null, { sort: { _id: -1 } });
+//   const Filterproducts = await Product.find({}, null, { sort: { _id: -1 } });
+//   const Newproducts = await Product.find({}, null, { sort: { _id: -1 } });
 
-  return {
-    props: {
-      Filterproducts: JSON.parse(JSON.stringify(Filterproducts)),
-      Newproducts: JSON.parse(JSON.stringify(Newproducts)),
-    },
-  };
-}
+//   return {
+//     props: {
+//       Filterproducts: JSON.parse(JSON.stringify(Filterproducts)),
+//       Newproducts: JSON.parse(JSON.stringify(Newproducts)),
+//     },
+//   };
+// }
