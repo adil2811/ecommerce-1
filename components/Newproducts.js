@@ -34,8 +34,8 @@ export default function Newproducts({
     <div className="px-0 pb-0 ">
         <Link href={url}>
           <span className='text-[13px] text-gray-500 ml-2 p-1'>Apple Laptop </span>
-            <h5 className="flex text-[15px] font-semibold tracking-tight text-gray-900 dark:text-white ml-3">{title} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="mt-[6px] ml-[1px] text-white-400 w-4 h-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            <h5 className="flex text-[15px] font-semibold tracking-tight text-gray-900 dark:text-white ml-3">{title} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="mt-[6px] ml-[1px] text-white-400 w-4 h-4">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
 </svg>
 </h5>
                         <span className="text-2xl font-bold text-gray-900 dark:text-white ml-3">₹{price}</span>
