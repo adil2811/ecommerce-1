@@ -4,6 +4,8 @@ import styled from "styled-components";
 import PrimaryBtn from "/components/PrimaryBtn";
 import Link from "next/link";
 import {CartContext} from "/components/Cartcontexts";
+import Image from 'next/image'
+
 
 
 
@@ -76,9 +78,9 @@ export default function Featured({product}) {
           </svg>
         </button>
       </div>
-  
+
       <div className="order-first ml-auto h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
-        <img className="h-full w-full object-cover" src={product.images[0]} loading="lazy" />
+        <img className="h-full w-full object-cover" src={product.images[0]} width={20} height={20} loading="lazy" />
       </div>
     </div>
   </div>
