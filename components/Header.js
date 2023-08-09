@@ -119,7 +119,7 @@ useEffect(() => {
 <Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/products'}>All Product</Link>
 <Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/categories'}>Categories</Link>
 <Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/login'}>Account</Link>
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/cart'}>Cart ({cartProducts.length})</Link>
+<Link className="text-white hover:border-b border-white hover:font-bold font-medium " href={'/Cart'}>Cart ({cartProducts.length})</Link>
 
 
 
