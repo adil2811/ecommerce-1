@@ -49,16 +49,16 @@ export default function Categories({ Filterproducts, Newproducts }) {
   );
 }
 
-// export async function getServerSideProps() {
-//   await mongooseConnect();
+export async function getServerSideProps() {
+  await mongooseConnect();
 
-//   const Filterproducts = await Product.find({}, null, { sort: { _id: -1 } });
-//   const Newproducts = await Product.find({}, null, { sort: { _id: -1 } });
+  const Filterproducts = await Product.find({}, null, { sort: { _id: -1 } });
+  const Newproducts = await Product.find({}, null, { sort: { _id: -1 } });
 
-//   return {
-//     props: {
-//       Filterproducts: JSON.parse(JSON.stringify(Filterproducts)),
-//       Newproducts: JSON.parse(JSON.stringify(Newproducts)),
-//     },
-//   };
-// }
+  return {
+    props: {
+      Filterproducts: JSON.parse(JSON.stringify(Filterproducts)),
+      Newproducts: JSON.parse(JSON.stringify(Newproducts)),
+    },
+  };
+}
