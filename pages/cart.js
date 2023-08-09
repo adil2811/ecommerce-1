@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 // banke hawa mai
-export default function cart() {
+export default function Cart() {
   const { cartProducts, addProduct, removeProduct,clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
