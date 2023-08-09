@@ -1,7 +1,7 @@
 import { FilterContextProvider } from '/components/Filter_context';
 import { CartContextProvider } from '/components/Cartcontexts';
 import '/styles/globals.css';
-import { ThemeProvider } from 'next-themes';
+
 
 
 
@@ -9,6 +9,7 @@ import { createGlobalStyle } from "styled-components"
 import { SessionProvider } from 'next-auth/react';
 
 const GlobalStyles = createGlobalStyle`
+
 body{
   background-color: white;
   padding:0;
