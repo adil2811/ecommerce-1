@@ -10,15 +10,23 @@ const nextConfig = {
  
 module.exports = {
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'adil-next-ecommerce.s3.amazonaws.com',
+        port: '443',
+        pathname: '/1689169977534.jpg',
+      },
+    ],
     // limit of 25 deviceSizes values
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     // limit of 25 imageSizes values
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // limit of 50 domains values
-    domains: [],
-    // path prefix for Image Optimization API, useful with `loader`
-    path: '/_next/image',
-    // loader can be 'default', 'imgix', 'cloudinary', 'akamai', or 'custom'
+
+
+
+
     loader: 'default',
     // file with `export default function loader({src, width, quality})`
     loaderFile: '',
