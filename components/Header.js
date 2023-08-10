@@ -7,7 +7,7 @@ import Center from "/components/Center";
 import { useContext } from "react";
 import { CartContext } from "/components/Cartcontexts";
 import { signOut, useSession } from "next-auth/react";
-import profilepic from "/Users/adilshiakh/Desktop/images ecommerce/userimg/user.jpg"
+import profilepic from "../public/img/user.jpg";
 import React, {useState, useEffect, useRef} from 'react';
 
 
