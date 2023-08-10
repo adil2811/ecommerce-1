@@ -1,16 +1,17 @@
 
+'use client'
 import Filterpanel from "@/components/Filterpanel";
 import Header from "@/components/Header";
 import Searchbar1 from "@/components/Searchbar1";
 import List from "@/components/List";
-import { mongooseConnect } from "@/lib/mongoose";
-import { Product } from "/models/Product";
+// import { mongooseConnect } from "@/lib/mongoose";
+// import { Product } from "/models/Product";
 import React, { useState } from "react"; // Import React and useState
 import { useFilterContext } from "@/components/Filter_context";
 import Sort from "@/components/Sort";
 import Footer from "@/components/Footer";
 
-export default function Categories({ Filterproducts, Newproducts }) {
+export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories,setCategories] = useState([])
   
@@ -49,16 +50,4 @@ export default function Categories({ Filterproducts, Newproducts }) {
   );
 }
 
-export async function getServerSideProps() {
-  await mongooseConnect();
 
-  const Filterproducts = await Product.find({}, null, { sort: { _id: -1 } });
-  const Newproducts = await Product.find({}, null, { sort: { _id: -1 } });
-
-  return {
-    props: {
-      Filterproducts: JSON.parse(JSON.stringify(Filterproducts)),
-      Newproducts: JSON.parse(JSON.stringify(Newproducts)),
-    },
-  };
-}
