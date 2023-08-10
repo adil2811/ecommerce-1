@@ -1,14 +1,13 @@
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  compiler : {
+  compiler: {
     styledComponents: true,
   },
 }
  
-module.exports = {
+module.exports = { 
+  nextConfig,
   images: {
     remotePatterns: [
       {
