@@ -1,13 +1,10 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
-
 import {mongooseConnect} from "@/lib/mongoose";
 import {Product} from "@/models/Product";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
 import ProductImages from "@/components/ProductImages";
-
-
 import {useContext} from "react";
 import { CartContext } from "@/components/Cartcontexts";
 
