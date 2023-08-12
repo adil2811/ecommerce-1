@@ -16,7 +16,7 @@ const initialState = {
     sorting_value: "recent",
     filter:{
         text:"",
-        category:"All"
+        category:""
     }
 };
 
