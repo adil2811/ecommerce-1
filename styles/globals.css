@@ -365,7 +365,7 @@ padding: 10px 0;
 @media screen and (max-width: 640px) {
   
   .home_panel-wrap {
-    flex-basis: 90px;
+    flex-basis: 88px;
   }
 
   .ColumsWrapper {
