@@ -6,8 +6,7 @@ export default function Footer() {
   return (
     <div>
        <div className="bg-black p-4 items-center">
-<div className="flex justify-center pt-10 pb-14 md:pb-9 max-sm: hidden"> <img className="w-2/5 md:w-[25%] lg:w-[18%] xl:w-[15%]"
-        src="images/cucet-footer-logo.png" alt=""  /> </div>
+
 <div className="space-y-9 grid grid-cols-1 md:grid-cols-2 md:pl-24 md:pr-16 lg:grid-cols-4 lg:px-7 xl:px-14 xl:ml-16">
     <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">
         <div className="flex justify-start md:mt-10">
