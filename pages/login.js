@@ -1,10 +1,14 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Header from "@/components/Header";
+import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
+
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,10 +34,11 @@ const Login = () => {
   if (session) {
     return (
       <>
-        <Header />
-        <h1>your sign in {session?.user?.image}</h1>
+      <Header/>
+      <h1> congratulations your signed In {session.user?.name}<Link href={'/'}> Go to the home page</Link></h1>
       </>
-    );
+    )
+
   }
 
   return (
