@@ -3,26 +3,12 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-
-
-const useUser = () => ({ user: null, loading: false })
 
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { user, loading } = useUser()
-  const router = useRouter()
- 
-  useEffect(() => {
-    if (!(user || loading)) {
-      router.push('/login')
-    }
-  }, [user, loading])
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -41,8 +27,6 @@ const Register = () => {
   };
 
   return (
-
-    
     <>
     <Header/>
      <form
