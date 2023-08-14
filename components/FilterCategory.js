@@ -30,9 +30,9 @@ export default function   FilterCategory() {
        Category
     </h3>
     <ul className='ml-8 max-sm:ml-[0px] p-2 text-left	  '  >
-        <li className='text-gray-600 hover:text-green-600 max-sm:text-[8px]'><button type="button"  name='category' onClick={updateFilterValue}>All</button></li>
+        <li className='text-gray-600 hover:text-green-600 max-sm:text-[7px]'><button type="button"  name='category' onClick={updateFilterValue}>All</button></li>
    {categories.map((curElem,index)=> {
-        return  <li className='max-sm:text-[8px] mt-1 text-gray-600 hover:text-green-600 active:text-red-600 ' key={index}><button key={index} type="button" value={curElem._id} name='category' onClick={updateFilterValue}>{curElem.name}</button></li>
+        return  <li className='max-sm:text-[7px] mt-1 text-gray-600 hover:text-green-600 active:text-red-600 ' key={index}><button key={index} type="button" value={curElem._id} name='category' onClick={updateFilterValue}>{curElem.name}</button></li>
     })
 
    }
