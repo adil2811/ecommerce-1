@@ -55,12 +55,14 @@ const filterReducer = (state,action) => {
 
                     case "UPDATE_FILTERS_VALUE":
                     const { name,value } = action.payload;
+                    let name1 = name.toLowerCase()
+                    let value1 = value.toLowerCase()
 
                     return {
                         ...state,
                         filter: {
                             ...state.filters,
-                            [name]:value,
+                            [name1]:value1,
                         },                        
                     };
                     case "FILTER_PRODUCTS":
