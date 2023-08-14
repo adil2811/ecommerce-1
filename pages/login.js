@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Header from "@/components/Header";
-import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 
 
@@ -34,6 +33,7 @@ const Login = () => {
   if (session) {
     return (
       <>
+
       <Header/>
       <h1> congratulations your signed In {session.user?.name}<Link href={'/'}> Go to the home page</Link></h1>
       </>
@@ -106,7 +106,7 @@ const Login = () => {
                   Sign Up and discover new oppurtinities here
                 </h1>
                 <Link
-                  href="/register"
+                  href={"/register"}
                   className="bg-white rounded-2xl px-4 text-emerald-400 py-1"
                 >
                   SignUp
