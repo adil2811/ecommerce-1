@@ -7,9 +7,9 @@ export default function Sort() {
 
   return (
     <div className='colum-2'>
-        <div className='text-gray-700'>All Products</div>
-        <div className='text-gray-600'>Total Search results {filter_products.length}</div>
-        <div className='ml-[30%] text-gray-800'>
+        <div className='text-gray-700 max-sm:text-[10px] '>All Products</div>
+        <div className='text-gray-600 max-sm:text-[10px] max-sm:ml-[-10px]'>Total Search results {filter_products.length}</div>
+        <div className='ml-[30%] max-sm:ml-[8%] text-gray-800 max-sm:text-[10px]'>
             <form action="#">
                 {/* <lable htmlFor="sort">sort</lable> */}
                 <select name="sort" id="sort" onChange={sorting}>
