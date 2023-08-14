@@ -44,7 +44,7 @@ export default function List({price,images,title,_id}) {
             <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">4.0</span>
         </div>
         <div className="flex pb-0 ">
-            <Link href="#" className="h-[50px]  max-sm:h-[40px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm:text-[11px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full">Add to cart</Link>
+            <Link href="#" className="h-[50px]  max-sm:h-[35px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm:text-[11px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full text-top">Add to cart</Link>
         </div>
     </div>
 </div>
