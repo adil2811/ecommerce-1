@@ -1,28 +1,22 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import User from '@/models/User';
+import User from "@/models/User";
 import bcrypt from "bcryptjs";
-import GoogleProvider from 'next-auth/providers/google'
 import { mongooseConnect } from "@/lib/mongoose";
 
-
 export default NextAuth({
-  session: {
-    strategy: 'jwt',
-  },
+  // ...
 
   providers: [
-    GoogleProvider({
-        clientId: process.env.GOOGLE_ID,
-        clientSecret: process.env.GOOGLE_SECRET
-      }),
+    // ...
     CredentialsProvider({
       async authorize(credentials, req) {
-        await  mongooseConnect();
+        await mongooseConnect();
 
         const { email, password } = credentials;
 
-        console.log(email,password)
+
+        console.log(email, password);
 
         const user = await User.findOne({ email });
 
@@ -40,8 +34,24 @@ export default NextAuth({
       },
     }),
   ],
-  // pages: {
-  //   signIn: '/login'
-  // },
-  secret: process.env.NEXTAUTH_SECRET,
+
+  callbacks: {
+    jwt: async ({ token, user}) => {
+      user && (token.user = user);
+
+      return token;
+
+    },
+    session : async ({ session , token}) => {
+      session.user = token.user;
+
+      delete session?.user?.password;
+
+      return session
+
+    }
+  },
+
+
+
 });
