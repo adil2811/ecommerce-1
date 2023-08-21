@@ -5,9 +5,10 @@ import bcrypt from "bcryptjs";
 
 
 const userSchema = new mongoose.Schema({
-    name:String,
-    email:String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
     password:String,
+    wishlist: [{ type: mongoose.Types.ObjectId, ref: "WishlistItem" }],
 })
 
 
