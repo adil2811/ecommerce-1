@@ -1,7 +1,16 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
+import { CartContext } from "/components/Cartcontexts";
+
+
 export default function List({price,images,title,_id}) {
+
+    const { addProduct } = useContext(CartContext);
+    function addProductCart() {
+      addProduct(_id)
+    }
+    const url = "/product/" + _id;
 
 
     
@@ -11,7 +20,7 @@ export default function List({price,images,title,_id}) {
    
 
 <div  key={_id} className=" p-1 mt-4  w-[250px] max-sm:w-[120px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 inline-block justify-between	mr-2 ml-2  ">
-    <Link href="#">
+    <Link href={url}>
         <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[0]} alt="product image" />
     </Link>
     <div className="px-0 pb-0 ">
@@ -44,7 +53,7 @@ export default function List({price,images,title,_id}) {
             <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">4.0</span>
         </div>
         <div className="flex pb-0 ">
-            <Link href="#" className="h-[50px]  max-sm:h-[35px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm:text-[11px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full text-top">Add to cart</Link>
+            <button onClick={addProductCart} className="h-[50px]  max-sm:h-[35px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm:text-[11px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full text-top">Add to cart</button>
         </div>
     </div>
 </div>
