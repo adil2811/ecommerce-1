@@ -1,12 +1,9 @@
 import { FilterContextProvider } from '/components/Filter_context';
 import { CartContextProvider } from '/components/Cartcontexts';
 import '/styles/globals.css';
-
-
-
-
 import { createGlobalStyle } from "styled-components"
 import { SessionProvider } from 'next-auth/react';
+import { WishlistContextProvider } from '@/components/Wishlist';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -27,13 +24,15 @@ export default function App({ Component, pageProps , props }) {
     <GlobalStyles/>
     <SessionProvider>
    <CartContextProvider>
-    <FilterContextProvider>
+     <WishlistContextProvider>
+      <FilterContextProvider>
 
 
    <Component {...pageProps} />
 
 
-   </FilterContextProvider>
+      </FilterContextProvider>
+     </WishlistContextProvider>
    </CartContextProvider>
    </SessionProvider>
 
