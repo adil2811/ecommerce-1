@@ -2,6 +2,7 @@ import { CartContext } from "@/components/Cartcontexts";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
 // banke hawa mai
 export default function Cart() {
@@ -14,6 +15,10 @@ export default function Cart() {
   const [streetAdress, setStreetAdress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess,setIsSuccess] = useState(false);
+  const { data: session } = useSession();
+
+
+console.log(session)
 
 
   useEffect(() => {
@@ -152,7 +157,7 @@ export default function Cart() {
               <input
                 className="styledinput"
                 type="text"
-                placeholder="Name"
+                placeholder={session?.user?.name}
                 name="name"
                 value={name}
                 onChange={(ev) => setName(ev.target.value)}
@@ -160,10 +165,10 @@ export default function Cart() {
               <input
                 className="styledinput"
                 type="text"
-                placeholder="Email"
+                placeholder={session?.user?.email}
                 name="email"
                 value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
+                onChange={() => setEmail(session?.user?.email)}
               />
               <div className="cityholder">
                 <input
