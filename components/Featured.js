@@ -20,9 +20,9 @@ export default function Featured({product}) {
   }
 
   return (
-    <div>
-   <div className="m-10 mx-4 max-w-screen-lg overflow-hidden rounded-xl border shadow-lg md:pl-8 ml-[10%]">
-    <div className="flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
+    <div className="m-auto	">
+   <div className="m-auto mt-4  max-w-screen-lg overflow-hidden rounded-xl border shadow-lg md:pl-8  ">
+    <div className="  flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
       <div className="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
         <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-4xl">{product.title}</h2>
         <p className="mt-2 text-lg">A Product by Apple</p>

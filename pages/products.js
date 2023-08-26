@@ -5,6 +5,7 @@ import { Product } from '/models/Product';
 import React from 'react'
 import Footer from '@/components/Footer';
 
+
 export default function Productspage({products}) {
     console.log({products})
   return (

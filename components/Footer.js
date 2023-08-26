@@ -14,9 +14,10 @@ export default function Footer() {
                 className="text-white pb-[36px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                 Inform </h1> <span className="text-white font-sans uppercase font-normal tracking-wider">ation</span>
         </div>
-        <p>Registration Start Date</p>
-        <p>Registration End Date</p>
-        <p>Exam Last Date </p>
+        
+        Introducing your Choice - Redefining Elegance in Every Stitch.
+
+Elevate your style with your Choice's exquisite collection
     </div>
     <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
         <div>
@@ -34,10 +35,10 @@ export default function Footer() {
                     className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                     About </h1> <span className="text-white font-sans uppercase font-normal tracking-wider">exam</span>
             </div>
-            <p className=""> <Link className="hover:text-[#cacaca]" href="#">Apply</Link> </p>
-            <p className=""> <Link className="hover:text-[#cacaca]" href="#">Eligibility</Link> </p>
-            <p className=""> <Link className="hover:text-[#cacaca]" href="#">Application Process</Link> </p>
-            <p className=""> <Link className="hover:text-[#cacaca]" href="#">Syllabus</Link> </p>
+            <p className=""> <Link className="hover:text-[#cacaca]" href="#">About us</Link> </p>
+            <p className=""> <Link className="hover:text-[#cacaca]" href="#">Support</Link> </p>
+            <p className=""> <Link className="hover:text-[#cacaca]" href="#"> Return and refund</Link> </p>
+  
         </div>
         <div
             className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
@@ -58,8 +59,7 @@ export default function Footer() {
         <p className="space-x-3"> <i className="fa fa-home text-[17px]"></i><strong
                 className="text-[#8b8b8b] text-[15px] tracking-wide">Our Company</strong> </p>
         <div className="leading-7">
-            <p className=""> NH-70 Chandigarh-Ludhiana Highway, <br /> Mohali, Punjab (INDIA) <br /> General Helpline
-                No:+91 987-6543-210 </p>
+            <p className=""> BIT BLOCK Nariman point behind hp petrol pump (India) </p>
         </div>
         <div className="leading-7 mt-4 text-[15px] font-[500]">
             <p className="space-x-3 hover:text-[#cacaca]"> <i className="fa fa-phone text-[17px]"></i> <Link href="#"> 1800
@@ -67,7 +67,7 @@ export default function Footer() {
             <p className="space-x-3 hover:text-[#cacaca]"> <i className="fa fa-phone text-[17px]"></i> <Link
                     href="#">9946948000S ( <span className="text-[13px] font-[500]">General Enquiry</span> )</Link> </p>
             <p className="space-x-3 hover:text-[#cacaca]"> <i className="fa fa-phone text-[17px]"></i> <Link
-                    href="#">994694700&nbsp;( <span className="text-[13px] font-[500]">Technical Support: CUCET</span> )
+                    href="#">F&nbsp;( <span className="text-[13px] font-[500]">Technical Support: CUCET</span> )
                 </Link> </p>
             <p className="space-x-3 hover:text-[#cacaca]"> <i className="fa fa-envelope text-[16px]"></i> <Link href="#">
                     admin@Company.in</Link> </p>

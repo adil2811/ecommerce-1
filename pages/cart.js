@@ -2,6 +2,7 @@ import { CartContext } from "@/components/Cartcontexts";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
 // banke hawa mai
 export default function Cart() {
@@ -14,6 +15,10 @@ export default function Cart() {
   const [streetAdress, setStreetAdress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess,setIsSuccess] = useState(false);
+  const { data: session } = useSession();
+
+
+console.log(session)
 
 
   useEffect(() => {
@@ -150,24 +155,24 @@ export default function Cart() {
               </h2>
 
               <input
-                className="styledinput"
+                className="styledinput mt-10"
                 type="text"
-                placeholder="Name"
+                placeholder={session?.user?.name}
                 name="name"
                 value={name}
                 onChange={(ev) => setName(ev.target.value)}
               />
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
-                placeholder="Email"
+                placeholder={session?.user?.email}
                 name="email"
                 value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
+                onChange={() => setEmail(session?.user?.email)}
               />
               <div className="cityholder">
                 <input
-                  className="styledinput"
+                  className="styledinput mt-2"
                   type="text"
                   placeholder="City"
                   name="city"
@@ -175,7 +180,7 @@ export default function Cart() {
                   onChange={(ev) => setCity(ev.target.value)}
                 />
                 <input
-                  className="styledinput"
+                  className="styledinput mt-2"
                   type="text"
                   placeholder="Postal code"
                   name="postalCode"
@@ -184,7 +189,7 @@ export default function Cart() {
                 />
               </div>
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
                 placeholder="Street Address"
                 name="streetAdress"
@@ -192,7 +197,7 @@ export default function Cart() {
                 onChange={(ev) => setStreetAdress(ev.target.value)}
               />
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
                 placeholder="country"
                 name="country"
