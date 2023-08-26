@@ -1,6 +1,8 @@
 'use client'
 import Link from "next/link"
 import Image from 'next/image'
+import { WishlistContext } from "@/components/Wishlist";
+
 
 import styled from "styled-components"
 import Center from "/components/Center";
@@ -9,7 +11,7 @@ import { CartContext } from "/components/Cartcontexts";
 import { signOut, useSession } from "next-auth/react";
 import profilepic from "../public/img/user.jpg";
 import React, {useState, useEffect, useRef} from 'react';
-
+import logo from "../public/img/logo6.png"
 
 
 
@@ -71,6 +73,10 @@ export default function Header() {
   const [hamburger, sethamburger] = useState("hamburger");
   const [mobn , setmobn] = useState("mobile-nav");
   const [ismenuClicked , setismenuClicked ] = useState(false);
+  const { clearWishlist } = useContext(WishlistContext)
+  
+  const { data } = useSession();
+
 
 
 
@@ -97,9 +103,9 @@ const searchOption = () => {
   setSearchBar(true)
 }
 
-const { data  } = useSession()
 
-console.log(data)
+
+// console.log(data)
 
 
 const [open, setOpen] = useState(false);
@@ -148,7 +154,7 @@ const updatemenu = () => {
     <>
 
 
- <div className="StyledHeader max-sm: h-[90px] ">
+ <div className="StyledHeader max-sm: h-[110px] ">
   
 <div className="center">
   <div className="wrapper">
@@ -166,13 +172,19 @@ const updatemenu = () => {
         </div>
 
 
-<span className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/'}>Ecommerce</span>
-<div className="flex gap-4">
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden " href={'/'}>Home</Link>
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden " href={'/products'}>All Product</Link>
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/categories'}>Categories</Link>
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/login'}>Account</Link>
-<Link className="text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/cart'}>Cart ({cartProducts.length})</Link>
+<span className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/'}> <Image
+      src={logo}
+      width={80}
+      height={60}
+      className="mb-2 ml-3 "
+      alt="Picture of the author"
+    /></span>
+<div className="flex gap-4 mt-4">
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/'}>Home</Link>
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/products'}>All Product</Link>
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/categories'}>Categories</Link>
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/login'}>Account</Link>
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/cart'}>Cart ({cartProducts.length})</Link>
 
 
 
@@ -191,9 +203,9 @@ const updatemenu = () => {
 <Image
 src={profilepic}
 alt="Picture of the author"
-width={30} 
+width={40} 
 height={30} 
-className="rounded-full"
+className="rounded-full mt-[-10px]"
 // blurDataURL="data:..." automatically provided
 // placeholder="blur" 
 />
@@ -211,28 +223,36 @@ className="rounded-full"
 
 </div>
 
-<div  className={`dropdown-menu ${open? 'active' : 'inactive'} mt-[-20px] ml-[82%] max-sm:ml-[51%] w-[15%] max-sm:w-[37%] `}>
+<div  className={`dropdown-menu ${open? 'active' : 'inactive'} mt-[-23px] ml-[82%] max-sm:ml-[51%] w-[15%] max-sm:w-[37%] `}>
 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-<div>{data?.user.name ? data?.user.name : ' Hello,'}</div>
-<div className="font-medium truncate" >{data?.user.email ? data?.user.email : ' please log in'}</div>
+<div className="text-white">{data?.user.name ? data?.user.name : ' Hello,'}</div>
+<div className="text-white font-medium truncate" >{data?.user.email ? data?.user.email : ' please log in'}</div>
 </div>
 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-<li>
-<Link href={"/login"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray">Dashboard</Link>
-</li>
-<li>
-<Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</Link>
-</li>
-
+  <li>
+    <Link href={"/login"} className="text-white hover:text-green-600  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray">
+      Account
+    </Link>
+  </li>
+  <li>
+    <div> 
+      <Link 
+        href={"/yourorder"}
+        className="text-white hover:text-green-600 block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+      >
+        {data?.user ? "yourorder" : null}
+      </Link>
+    </div>
+  </li>
 </ul>
 <div className="py-2">
 <span  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
 {data?.user ? (
-<span className="text-gray-400 text-l cursor-pointer" onClick={() => signOut()}>Logout</span>
+<span className="text-gray-400 hover:text-green-600 text-l cursor-pointer " onClick={() => {signOut(),clearWishlist()}}>Logout</span>
 
 ):
 (
-<Link href={'/login'} className="text-gray-400 text-l cursor-pointer text-white">Login</Link>
+<Link href={'/login'} className="text-gray-400 text-l cursor-pointer hover:text-green-600">Login</Link>
 
 )
 }

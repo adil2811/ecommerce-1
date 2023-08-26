@@ -155,7 +155,7 @@ console.log(session)
               </h2>
 
               <input
-                className="styledinput"
+                className="styledinput mt-10"
                 type="text"
                 placeholder={session?.user?.name}
                 name="name"
@@ -163,7 +163,7 @@ console.log(session)
                 onChange={(ev) => setName(ev.target.value)}
               />
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
                 placeholder={session?.user?.email}
                 name="email"
@@ -172,7 +172,7 @@ console.log(session)
               />
               <div className="cityholder">
                 <input
-                  className="styledinput"
+                  className="styledinput mt-2"
                   type="text"
                   placeholder="City"
                   name="city"
@@ -180,7 +180,7 @@ console.log(session)
                   onChange={(ev) => setCity(ev.target.value)}
                 />
                 <input
-                  className="styledinput"
+                  className="styledinput mt-2"
                   type="text"
                   placeholder="Postal code"
                   name="postalCode"
@@ -189,7 +189,7 @@ console.log(session)
                 />
               </div>
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
                 placeholder="Street Address"
                 name="streetAdress"
@@ -197,7 +197,7 @@ console.log(session)
                 onChange={(ev) => setStreetAdress(ev.target.value)}
               />
               <input
-                className="styledinput"
+                className="styledinput mt-2"
                 type="text"
                 placeholder="country"
                 name="country"

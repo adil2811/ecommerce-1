@@ -4,6 +4,10 @@ import React from "react";
 
 import { CartContext } from "/components/Cartcontexts";
 import { WishlistContext } from "/components/Wishlist";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+
+
 import axios from "axios";
 
 
@@ -22,9 +26,24 @@ export default function Newproducts({
  {
 const { addToWishlist , wishlistProducts , setWishlistProducts  } = useContext(WishlistContext);
 const [wishlistState, setWishlistState] = useState(wishlistProducts);
-
 const { removeFromWishlist  } = useContext(WishlistContext);
 const [btnState ,setBtnState] = useState(null)
+const [userId,setUserId] = useState('')
+const { data: session } = useSession();
+const router = useRouter();
+
+
+
+
+useEffect(() => {
+  setUserId(session?.user?._id)
+
+},[session])
+
+
+
+
+
 useEffect(() => {
   axios.get("/api/wishlist").then((response) => {
     setWishlistState(response.data);
@@ -32,10 +51,16 @@ useEffect(() => {
 }, []);
 
 
+
 async function  addWishList() {
+  if (!session?.user) {
+    // Navigate to login page
+    router.push("/login"); // Update "/login" with your actual login page URL
+    return;
+  }
   const isAlreadyInWishlist = wishlistProducts.includes(_id);
 
-  setBtnState(isAlreadyInWishlist);
+  setBtnState(!isAlreadyInWishlist); // Toggle btnState
 
   if (isAlreadyInWishlist) {
     removeFromWishlist(_id);
@@ -45,10 +70,19 @@ async function  addWishList() {
 
   setWishlistState([...wishlistState]); // Trigger re-render
 
+  // console.log(wishlistProducts)
 
+  axios.put('/api/updatewishlist', { userId, wishlistProducts })
+  .then(response => {
+    console.log('Wishlist updated:', response.data);
+  })
+  .catch(error => {
+    console.error('Error updating wishlist:', error);
+  });
 
+ 
 }
-console.log(wishlistProducts)
+// console.log(wishlistProducts)
 
 
 
@@ -60,6 +94,24 @@ console.log(btnState)
     addProduct(_id)
   }
   const url = "/product/" + _id;
+  console.log(btnState)
+
+  const filledHeartIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-red-800">
+  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+</svg>
+  
+  );
+  
+  const emptyHeartIcon = (
+
+
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+<path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+</svg>
+  );
+  
+
   return (
 <>
 
@@ -67,15 +119,14 @@ console.log(btnState)
 
 
 
-<div className="flex-box p-3 ml-2">
+<div className="flex-box p-[2%] ml-3">
 <div key={_id} className="flex-box">
 
 
 <div className=" p-1 mt-2  w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 inline-block justify-between	mr-2 ml-2  ">
 
-<button onClick={addWishList}  className="ml-[90%]" >    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-white" >
-  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-</svg> 
+<button onClick={addWishList}  className="ml-[90%]" >    
+{session?.user ? (btnState ? filledHeartIcon : emptyHeartIcon) : emptyHeartIcon}
 
 
 </button>
@@ -120,6 +171,7 @@ console.log(btnState)
 </div>
 </div>
 </div>
+
 
 
 

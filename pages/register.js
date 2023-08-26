@@ -16,6 +16,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = useState(null); // Initialize with null
+
 
  
   const {wishlistProducts } = useContext(WishlistContext)
@@ -48,6 +50,8 @@ const Register = () => {
 
     }  catch (error) {
       console.log("Signup failed", error.message);
+      setError("Invalid email or password length."); // Set the error message
+
       
 
     }finally {
@@ -97,6 +101,7 @@ const Register = () => {
            onChange={(e) => setEmail(e.target.value)}
            className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
       </div>
+      
       <div className="relative mb-4">
         <label htmlFor="password" className="leading-7 text-sm text-gray-600">password</label>
         <input 
@@ -106,9 +111,11 @@ const Register = () => {
          onChange={(e) => setPassword(e.target.value)}
            className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
       </div>
+     <span className="text-red-600 m-2">{error} </span> 
       <button  disabled={loading} className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Register</button>
       <p className="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
     </div>
+   
     
   </div>
 </section>
