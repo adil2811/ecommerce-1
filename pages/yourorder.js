@@ -1,10 +1,9 @@
-import React from 'react'
 import Header from "@/components/Header";
 import { useState, useEffect } from 'react';
 import { useSession } from "next-auth/react";
 import axios from 'axios';
 
-export default function yourorder() {
+export default function Yourorder() {
     const [orders, setOrders] = useState([]);
     const { data: session } = useSession();
  
