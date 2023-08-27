@@ -154,20 +154,20 @@ async function  removewishlist() {
       <>
 
         <Header />
-        <div className="min-h-screen p-8 bg-gray-100">
+    
       <h1 className="text-3xl font-semibold mb-6">Your Wishlist</h1>
 
 
       {wishlistProducts.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0">
+        <div className=" grid gap-4 grid-cols-3 lg:grid-cols-4 grid-rows-3 lg:grid-rows-4 ">
             {products.map((product) => (
         <div key={product._id} className="">
-        <div  className="">
+        <div  className="inline-flex ">
         
         
-        <div className="  w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-between	  ">
+        <div className=" w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-between	max-sm:mt-7  ">
         
        
             <Link href={'#'}>
@@ -214,7 +214,7 @@ async function  removewishlist() {
         ))}
         </div>
       )}
-    </div>
+
 
         
 
