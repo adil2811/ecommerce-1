@@ -1,3 +1,4 @@
+'use client'
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import React from "react";
@@ -6,6 +7,9 @@ import { CartContext } from "/components/Cartcontexts";
 import { WishlistContext } from "/components/Wishlist";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 import axios from "axios";
@@ -64,8 +68,28 @@ async function  addWishList() {
 
   if (isAlreadyInWishlist) {
     removeFromWishlist(_id);
+    toast.error('Removed from wishlst', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   } else {
     addToWishlist(_id);
+    toast.success('Add to wishlist!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   }
 
   setWishlistState([...wishlistState]); // Trigger re-render
@@ -91,7 +115,17 @@ console.log(btnState)
 
   const { addProduct } = useContext(CartContext);
   function addProductCart() {
-    addProduct(_id)
+     addProduct(_id)  
+     toast.success('Add to wishlist!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });  
   }
   const url = "/product/" + _id;
   console.log(btnState)

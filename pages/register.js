@@ -6,6 +6,10 @@ import { useSession } from "next-auth/react";
 import {useRouter} from "next/navigation";
 import React, { useContext, useState } from "react";
 import { WishlistContext } from "@/components/Wishlist";
+import {  toast } from 'react-toastify';
+import Link from "next/link"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -31,6 +35,21 @@ const Register = () => {
     
     e.preventDefault();
     console.log(name,email,password)
+
+    if (password.length < 6) {
+    {toast.error('password length is short', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+      return; // Exit the function if validation fails
+    }
+  }
     try {
       setLoading(true);
 
@@ -46,6 +65,16 @@ const Register = () => {
       console.log(data);
 
       router.push('/login');
+      toast.success('Your are sucessfully register', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
 
 
     }  catch (error) {
@@ -113,7 +142,7 @@ const Register = () => {
       </div>
      <span className="text-red-600 m-2">{error} </span> 
       <button  disabled={loading} className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Register</button>
-      <p className="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+      <p className="text-xs text-gray-500 mt-3">If you are already register in <Link href='/login' className="text-blue-800" > Click here</Link></p>
     </div>
    
     

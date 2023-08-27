@@ -157,7 +157,7 @@ console.log(session)
               <input
                 className="styledinput mt-10"
                 type="text"
-                placeholder={session?.user?.name}
+                placeholder={session?.user?.name || "Name"}
                 name="name"
                 value={name}
                 onChange={(ev) => setName(ev.target.value)}
@@ -165,7 +165,7 @@ console.log(session)
               <input
                 className="styledinput mt-2"
                 type="text"
-                placeholder={session?.user?.email}
+                placeholder={session?.user?.email || "Email"}
                 name="email"
                 value={email}
                 onChange={() => setEmail(session?.user?.email)}

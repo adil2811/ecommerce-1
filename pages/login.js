@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { WishlistContext } from "@/components/Wishlist";
 import { CartContext } from "/components/Cartcontexts";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import axios from 'axios';
@@ -102,21 +104,39 @@ async function  removewishlist() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+
     try {
+      // Perform the user sign-in operation using the provided credentials
+          
+
       const data = await signIn("credentials", {
         redirect: false,
         email,
         password,
-
       });
-      // to reload the page after coreect auth
-      window.location.reload();
-  
-    } catch (error) {
-      console.log(error);
-      setError('Invalid email or password'); // Set error message
+      toast.success('your logged in', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
 
+     
+      location.reload();
+
+        
+    } catch (error) {
+      // Log the error to the console
+      console.log("Error caught:", error); // Log the error for debugging
+  
+      // Display an error toast notification for failed login
+ 
     }
+
   };
   console.log(products)
 
@@ -129,6 +149,7 @@ async function  removewishlist() {
 
 
   if (session) {
+    
     return (
       <>
 
@@ -148,12 +169,7 @@ async function  removewishlist() {
         
         <div className="  w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-between	  ">
         
-        <button onClick={removewishlist}  className="ml-[90%]" >    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-black" >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-        </svg> 
-        
-        
-        </button>
+       
             <Link href={'#'}>
                 <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={product.images[1]} alt="product image" />
             </Link>
@@ -234,16 +250,14 @@ async function  removewishlist() {
 
                   Login to your account
                 </h1>
-                <h1 className="text-sm font-medium text-gray-600 m-2">
-                  Login using Social accounts
-                </h1>
-                <div className="text-lg lg:text-xl text-center space-x-5 m-2">
+             
+                {/* <div className="text-lg lg:text-xl text-center space-x-5 m-2">
                   <button onClick={() => signIn("google")}>
                     <i className="fa-brands fa-google-plus-g text-white bg-red-500 rounded-full px-[10px] py-[10px] ">
                       Google
                     </i>
                   </button>
-                </div>
+                </div> */}
                 <h1 className="text-sm font-medium text-gray-600 m-2">{error && <p className="text-red-500">{error}</p>} </h1>
               </div>
               <div className="flex flex-col justify-center items-center m-2 space-y-6 md:space-y-8">

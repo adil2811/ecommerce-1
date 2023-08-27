@@ -40,23 +40,21 @@ export default function yourorder() {
       </thead> 
       <tbody>
         {orders.length > 0 && orders.map(order => (
-          <tr>
-            <td>{(new Date(order.createdAt)).toUTCString()}</td>
+          <tr key={order._id}>
+            <td >{(new Date(order.createdAt)).toUTCString()}</td>
             <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
-              {order.paid ? 'YES' : 'NO'}
+              {order.paid ? 'Order ready to ship' : 'Payment fail'}
             </td>
-            <td>{order.name} {order.email}<br/>
-                {order.city} {order.postalCode}
-                {order.country}<br/>
-                {order.streetAddress}
+            <td>{order.name}<br/> {order.email}
+                
             
             </td>
             <td>
-              {order.line_items.map(l => (
-                <>
+              {order.line_items.map((l,index) => (
+                <div key={index} >
                 {l.price_data?.product_data.name}x
                 {l.quantity}<br/>
-                </>
+                </div>
               ))}
             </td>
           </tr>

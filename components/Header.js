@@ -172,18 +172,25 @@ const updatemenu = () => {
         </div>
 
 
-<span className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/'}> <Image
+<span className=" text-2xl text-white hover:border-b border-white hover:font-bold font-medium max-sm:hidden" href={'/'}> 
+<Image
       src={logo}
-      width={80}
+      width={60}
       height={60}
-      className="mb-2 ml-3 "
+      className="mb-2 ml-3 w-auto h-auto"
       alt="Picture of the author"
+      priority  
+
     /></span>
 <div className="flex gap-4 mt-4">
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/'}>Home</Link>
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/products'}>All Product</Link>
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/categories'}>Categories</Link>
-<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/login'}>Account</Link>
+{data?.user ? (
+  <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/login'}> Wishlist</Link>
+) : (
+  <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/login'}>{data?.user ? 'Wishlist' : 'Account'}</Link>
+)}
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/cart'}>Cart ({cartProducts.length})</Link>
 
 
@@ -205,7 +212,7 @@ src={profilepic}
 alt="Picture of the author"
 width={40} 
 height={30} 
-className="rounded-full mt-[-10px]"
+className="rounded-full mt-[-10px] w-auto h-auto"
 // blurDataURL="data:..." automatically provided
 // placeholder="blur" 
 />
@@ -230,9 +237,11 @@ className="rounded-full mt-[-10px]"
 </div>
 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
   <li>
-    <Link href={"/login"} className="text-white hover:text-green-600  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray">
-      Account
-    </Link>
+  {data?.user ? (
+  <Link className="text-white hover:text-green-600  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray" href={'/login'}> Wishlist</Link>
+) : (
+  <Link className="text-white hover:text-green-600  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray" href={'/login'}>{data?.user ? 'Wishlist' : 'Account'}</Link>
+)}
   </li>
   <li>
     <div> 

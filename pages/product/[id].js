@@ -7,6 +7,9 @@ import WhiteBox from "@/components/WhiteBox";
 import ProductImages from "@/components/ProductImages";
 import {useContext} from "react";
 import { CartContext } from "@/components/Cartcontexts";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ColWrapper = styled.div`
   display: grid;
@@ -27,6 +30,8 @@ const Price = styled.span`
 `;
 
 export default function ProductPage({product}) {
+
+  
   const {addProduct} = useContext(CartContext);
   return (
     <>

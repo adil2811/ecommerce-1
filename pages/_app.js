@@ -4,6 +4,7 @@ import '/styles/globals.css';
 import { createGlobalStyle } from "styled-components"
 import { SessionProvider } from 'next-auth/react';
 import { WishlistContextProvider } from '@/components/Wishlist';
+import { ToastContainer } from 'react-toastify';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -29,6 +30,10 @@ export default function App({ Component, pageProps , props }) {
 
 
    <Component {...pageProps} />
+   <ToastContainer
+   limit={3}
+   />
+
 
 
       </FilterContextProvider>

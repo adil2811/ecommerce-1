@@ -12,8 +12,9 @@ table.basic thead tr th
   @apply text-sm text-gray-600 uppercase border-b border-gray-200 px-4 py-2;
 }
 table.basic tr td{
-  @apply px-4 py-1;
+  @apply px-4 py-1  ;
 }
+
 table.basic a{
   @apply px-4 rounded-sm inline-flex mx-1 items-center gap-1 text-sm py-1;
 }
@@ -383,10 +384,14 @@ padding: 10px 0;
   .home_panel-wrap {
     flex-basis: 88px;
   }
+  table.basic tr td {
+    @apply px-0 py-0 text-xs;
+  }
 
   .ColumsWrapper {
     grid-template-columns: 1fr;
   }
 }
+
 
 
