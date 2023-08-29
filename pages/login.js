@@ -161,7 +161,7 @@ async function  removewishlist() {
       {wishlistProducts.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
-        <div className=" grid gap-4 grid-cols-3 lg:grid-cols-4 grid-rows-3 lg:grid-rows-4 ">
+        <div className=" grid gap-4 grid-cols-3 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2  grid-rows-3 sm:grid-rows-3 grid-rows-2 lg:grid-rows-4 sm:grid-rows-3 grid-rows-2 ">
             {products.map((product) => (
         <div key={product._id} className="">
         <div  className="inline-flex ">
