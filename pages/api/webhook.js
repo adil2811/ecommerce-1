@@ -6,9 +6,6 @@ import {Order} from "@/models/Order";
 const endpointSecret = "whsec_929478bfa155b29d150961b96db50c8882eb38dd833e090592b37c8b738d74ae";
 
 export default async function handler(req,res) {
-}
-
-export default async function handler(req,res) {
   await mongooseConnect();
   const sig = req.headers['stripe-signature'];
 
@@ -44,8 +41,10 @@ export const config = {
   api: {bodyParser:false,}
 };
 
-// bright-thrift-cajole-lean
-// acct_1Lj5ADIUXXMmgk2a
+
+
+
+
 
 
 
