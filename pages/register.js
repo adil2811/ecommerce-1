@@ -79,7 +79,7 @@ const Register = () => {
 
     }  catch (error) {
       console.log("Signup failed", error.message);
-      setError("Invalid email or password length."); // Set the error message
+      setError("Invalid email or Already logged in"); // Set the error message
 
       
 

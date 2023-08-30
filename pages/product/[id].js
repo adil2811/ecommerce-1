@@ -9,6 +9,7 @@ import {useContext} from "react";
 import { CartContext } from "@/components/Cartcontexts";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "@/components/Footer";
 
 
 const ColWrapper = styled.div`
@@ -104,6 +105,7 @@ export default function ProductPage({product}) {
           </div>
         </ColWrapper>
       </Center>
+      <Footer/>
     </>
   );
 }

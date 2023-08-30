@@ -34,10 +34,7 @@ const Login = () => {
   const { addProduct } = useContext(CartContext);
   
   
-  function addProductCart() {
-    addProduct(_id)
-  }
-  // const url = "/product/" + _id;r
+ 
 
    useEffect(() => {
     setUserId(session?.user?._id)
@@ -141,6 +138,7 @@ async function  removewishlist() {
   console.log(products)
 
   console.log(session); 
+  
 
 
 
@@ -149,6 +147,10 @@ async function  removewishlist() {
 
 
   if (session) {
+    function addProductCart(id) {
+      addProduct(id)
+    }
+    // const url = "/product/" + _id;r
     
     return (
       <>
@@ -175,7 +177,7 @@ async function  removewishlist() {
             </Link>
             <div className="px-0 pb-0 ">
                 <Link href={'#'}>
-                  <span className='text-[13px] max-sm:text-[9px] text-gray-500 ml-2 p-1 '>Apple Laptop </span>
+                  <span className='text-[13px] max-sm:text-[9px] text-gray-500 ml-2 p-1 '>{product.company} </span>
                     <h5 className="flex text-[15px] max-sm:text-[9px] font-semibold tracking-tight text-gray-900 dark:text-white ml-3 ">{product.title} 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="mt-[6px] max-sm: mt-[0px] ml-[4px] text-white-400 w-4 max-sm:w-[10px] h-4  ">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -203,7 +205,7 @@ async function  removewishlist() {
                     <span className="bg-blue-100 text-blue-800 text-[10px] font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3 max-sm: text-[10px]">4.0</span>
                 </div>
                 <div className="flex pb-0  ">
-                    <button onClick={addProductCart} className="h-[50px]  max-sm:h-[40px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm: text-[9px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full ">Add to cart</button>
+                    <button onClick={() => addProductCart(product._id)} className="h-[50px]  max-sm:h-[40px] text-white bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-lg rounded-[4px]  text-sm max-sm: text-[9px] px-5 py-2.5 text-center dark:bg-red-800 dark:hover:bg-red-600 dark:focus:ring-red-800 w-full ">Add to cart</button>
                
                 </div>
              

@@ -6,6 +6,7 @@ import { Product } from '/models/Product';
 import { FilterContextProvider } from '@/components/Filter_context';
 import { SessionProvider } from 'next-auth/react';
 import Footer from '@/components/Footer';
+import BottomFeature from '@/components/BottomFeature';
 
 
 
@@ -34,13 +35,14 @@ export default function Home({featuredProduct,newProducts,products}) {
 
       })
     }
+    <BottomFeature/>
     <Footer/>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const featuredProductId = '64a813970fdabdf3a1b46204';
+  const featuredProductId = '64edfedaadb25fe8167cf24a';
   await mongooseConnect();
   const featuredProduct = await Product.findById(featuredProductId);
   const newProducts = await Product.find({},null,{sort:{'_id':-1},limit:6});

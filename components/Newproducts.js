@@ -23,6 +23,7 @@ export default function Newproducts({
   _id,
   title,
   description,
+  company,
   images,
   price,
 })
@@ -165,11 +166,11 @@ console.log(btnState)
 
 </button>
     <Link href={url}>
-        <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[1]} alt="product image" />
+        <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[0]} alt="product image" />
     </Link>
     <div className="px-0 pb-0 ">
         <Link href={url}>
-          <span className='text-[13px] max-sm:text-[9px] text-gray-500 ml-2 p-1 '>Apple Laptop </span>
+          <span className='text-[13px] max-sm:text-[9px] text-gray-500 ml-2 p-1 '>{company ? company : 'your choice' } </span>
             <h5 className="flex text-[15px] max-sm:text-[9px] font-semibold tracking-tight text-gray-900 dark:text-white ml-3 ">{title} 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="mt-[6px] max-sm: mt-[0px] ml-[4px] text-white-400 w-4 max-sm:w-[10px] h-4  ">
   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
