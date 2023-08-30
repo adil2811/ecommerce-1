@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import spicy from  '../../ecommerce-1/public/img/spicy.webp'
-import wood from  '../../ecommerce-1/public/img/wood.webp'
-import Flor from  '../../ecommerce-1/public/img/f.webp'
+import spicy from  '../public/img/spicy.webp'
+import wood from  '../public/img/wood.webp'
+import Flor from  '../public/img/f.webp'
 
 
 export default function BottomFeature() {
