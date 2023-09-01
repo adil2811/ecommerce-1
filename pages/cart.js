@@ -39,7 +39,7 @@ console.log(session)
         setIsSuccess(true);
         clearCart()
     }
-  }, []);
+  }, [clearCart]);
 
   function moreofthisproduct(id) {
     addProduct(id);

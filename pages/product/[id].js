@@ -10,6 +10,7 @@ import { CartContext } from "@/components/Cartcontexts";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "@/components/Footer";
+import Star from "@/components/Star";
 
 
 const ColWrapper = styled.div`
@@ -31,7 +32,7 @@ const Price = styled.span`
 `;
 
 export default function ProductPage({product}) {
-
+console.log(product)
   
   const {addProduct} = useContext(CartContext);
   return (
@@ -44,23 +45,8 @@ export default function ProductPage({product}) {
           </WhiteBox>
           <div>
             <div className="title">{product.title}</div>
-            <div className="flex text-yellow-400 text-m mt-2 ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="w-6 h-6">
-  <path fillRule-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" cliprulerule="evenodd" />
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="w-6 h-6">
-  <path fillRule-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" cliprulerule="evenodd" />
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="w-6 h-6">
-  <path fillRule-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" cliprulerule="evenodd" />
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="w-6 h-6">
-  <path fillRule-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" cliprulerule="evenodd" />
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="w-6 h-6">
-  <path fillRule-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" cliprulerule="evenodd" />
-</svg>
-<span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">(4.0 customer reviews)</span>
+            <div className="flex  mt-2 ">
+           <Star stars={product.rating}  reviews={4}/>
 </div>
 <p className="mt-5 ">{product.description}</p>
 
@@ -91,10 +77,11 @@ export default function ProductPage({product}) {
 </div>
 </div>
 <hr></hr>
+<p className="mt-2 text-black-800"><b>MRP:</b><span className="text-red-800"><b><s>{product.disprice}</s></b></span></p>
 
             <PriceRow className="mt-4">
-              <div>
-                <Price>₹{product.price}</Price>
+              <div className="flex">
+              <h3 className="p-1 text-xl mt-[-3px]"><b>Deal OF The day :</b> </h3> <Price>₹{product.price}</Price>
               </div>
               <div>
                 <button className="button-prime"  onClick={() => addProduct(product._id)}>

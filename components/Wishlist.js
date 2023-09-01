@@ -18,11 +18,8 @@ console.log(session?.user?.wishlist)
   useEffect(() => {
     if (wishlistProducts?.length > 0) {
       ls?.setItem("wishlist", JSON.stringify(wishlistProducts));
-
-      
-
-    }
-  }, [wishlistProducts]);
+      }
+  }, [wishlistProducts, ls]); // Add ls to the dependency array
   
   useEffect(() => {
     if (ls && ls.getItem("wishlist")) {

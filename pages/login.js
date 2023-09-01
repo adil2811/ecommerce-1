@@ -150,7 +150,7 @@ async function  removewishlist() {
     function addProductCart(id) {
       addProduct(id)
     }
-    // const url = "/product/" + _id;r
+    const url = "/product/";
     
     return (
       <>
@@ -163,7 +163,7 @@ async function  removewishlist() {
       {wishlistProducts.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
-        <div className=" grid gap-4 grid-cols-3 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2  grid-rows-3 sm:grid-rows-3 grid-rows-2 lg:grid-rows-4 sm:grid-rows-3 grid-rows-2 ">
+        <div className=" grid gap-4 grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2  grid-rows-3 sm:grid-rows-3 grid-rows-2 lg:grid-rows-4 sm:grid-rows-3 grid-rows-2 ">
             {products.map((product) => (
         <div key={product._id} className="">
         <div  className="inline-flex ">
@@ -172,7 +172,7 @@ async function  removewishlist() {
         <div className=" w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-between	max-sm:mt-7  ">
         
        
-            <Link href={'#'}>
+            <Link href={url+product._id}>
                 <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={product.images[1]} alt="product image" />
             </Link>
             <div className="px-0 pb-0 ">

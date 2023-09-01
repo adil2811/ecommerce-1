@@ -1,10 +1,9 @@
 import {useContext} from "react";
-import Center from "/components/Center";
-import styled from "styled-components";
-import PrimaryBtn from "/components/PrimaryBtn";
-import Link from "next/link";
 import {CartContext} from "/components/Cartcontexts";
-import Image from 'next/image'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link";
+
 
 
 
@@ -17,14 +16,26 @@ export default function Featured({product}) {
  const {addProduct} = useContext(CartContext);
   function addFeaturedToCart() {
     addProduct(product._id)
+    toast.success('Add to wishlist!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      }); 
   }
+  const url = "/product/" + product._id;
+
 
   return (
-    <div className="m-auto	">
+    <Link href={url} className="m-auto	">
    <div className="m-auto mt-4  max-w-screen-lg overflow-hidden rounded-xl border shadow-lg md:pl-8  ">
     <div className="  flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
       <div className="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
-        <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-4xl">{product.title}</h2>
+        <h1 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-4xl">{product.title}</h1>
         <p className="mt-2 text-lg">{product.company}</p>
         <p className="mt-4 mb-8 max-w-md text-gray-500 text-[13px]">{product.description.slice(0,318)}...</p>
         <button onClick={addFeaturedToCart}  className="group mt-auto flex w-44 cursor-pointer select-none items-center justify-center rounded-md bg-black px-6 py-2 text-white transition">
@@ -41,7 +52,7 @@ export default function Featured({product}) {
     </div>
   </div>
   
-    </div>
+    </Link>
   );
 }
 
