@@ -72,7 +72,9 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
           {/* Repeat the above structure for the other two testimonials */}
         </div>
       </div>
+    
     </div>
+
  
  </>
   )
