@@ -22,7 +22,7 @@ const Star = ({ stars, reviews }) => {
 
   return (
     <Wrapper>
-      <div className="icon-style">
+      <div className="icon-style text-[10px]">
         {ratingStar}
 
       </div>
@@ -38,7 +38,7 @@ const Wrapper = styled.section`
     justify-content: flex-start;
 
     .icon {
-      font-size: 1.5rem;
+     
       color: orange;
     }
 
