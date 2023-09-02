@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import React from 'react'
 import Image from 'next/image'
 import aboutus from '../public/img/aboutus.jpg'
-export default function about() {
+export default function About() {
   return (
     <>
     <Header/>
