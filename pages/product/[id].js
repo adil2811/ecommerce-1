@@ -45,10 +45,22 @@ console.log(product)
           </WhiteBox>
           <div>
             <div className="title">{product.title}</div>
-            <div className="flex  mt-2 ">
-           <Star stars={product.rating}  reviews={4}/>
+            <div className="flex  mt-2  ">
+           <Star  stars={product.rating}  reviews={4}/>
 </div>
+<hr className="mt-2"/>
+<ul class="list-disc pl-4 text-gray-600 text-[13px]">
+  <li class="">Gentle on Your Skin</li>
+  <li class="">Completely Vegan</li>
+  <li class="">No Harm to Animals</li>
+  <li class="">Delivered in 5-7 Working Days</li>
+  <li class="">Free Nationwide Shipping</li>
+  <li>Remarkably Matching Scents</li>
+</ul>
+
 <p className="mt-5 ">{product.description}</p>
+<span className=" text-gray-600 text-[12px]"> 50 ML Spray Bottle</span>
+
 
 <div className="  text-gray-700  flex mt-4 space-x-11 > * + *	">
 <div className="h-20 w-5">

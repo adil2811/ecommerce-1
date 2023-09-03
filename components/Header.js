@@ -114,6 +114,8 @@ const updatemenu = () => {
 
           <nav className={mobn}>
           <Link href={'/'}>Home</Link>
+          <Link href={'/Blogs'}>blogs</Link>
+
           <Link href={'/products'}>All Product</Link>
           <Link href={'/categories'}>Categories</Link>
           <Link href={'/login'}>Account</Link>
@@ -133,6 +135,8 @@ const updatemenu = () => {
     /></span>
 <div className="flex gap-4 mt-4">
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/'}>Home</Link>
+<Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/blogs'}>Blogs</Link>
+
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden " href={'/products'}>All Product</Link>
 <Link className="text-white text-2xl hover:border-b border-white hover:font-bold font-large max-sm:hidden" href={'/categories'}>Categories</Link>
 {data?.user ? (

@@ -22,7 +22,7 @@ const Star = ({ stars, reviews }) => {
 
   return (
     <Wrapper>
-      <div className="icon-style text-[10px]">
+<div className="icon-style text-[10px] lg:text-[20px]">
         {ratingStar}
 
       </div>

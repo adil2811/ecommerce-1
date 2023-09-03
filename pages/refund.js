@@ -28,7 +28,7 @@ export default function Refund() {
     </div>
     <div className=" flex md:flex-row flex-col md:space-x-8 md:mt-16 mt-8">
         <div className=" md:w-5/12 lg:w-4/12 w-full ">
-            <Image src={banner}  width={100} height={100} alt="Img of Glass bottle" className="w-full md:block hidden" placeholder = 'empty' />
+            <Image src={banner}  width={100} height={100}  alt="Img of Glass bottle" className="w-full md:block hidden" placeholder = 'empty' />
             <Image src={banner} width={100} height={100}  alt="Img of Glass bottle" className="w-full md:hidden block  "  placeholder = 'empty'/>
         </div>
         <div className=" md:w-7/12 lg:w-8/12 w-full md:mt-0 sm:mt-14 mt-10">
