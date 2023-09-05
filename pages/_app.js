@@ -5,8 +5,7 @@ import { createGlobalStyle } from "styled-components"
 import { SessionProvider } from 'next-auth/react';
 import { WishlistContextProvider } from '@/components/Wishlist';
 import { ToastContainer } from 'react-toastify';
-import Head from 'next/head'
-
+import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 
 const GlobalStyles = createGlobalStyle`
 
@@ -24,16 +23,15 @@ body{
 export default function App({ Component, pageProps , props }) {
   return (
     <>
-     <Head>
-        <title>Best Perfume for Men and Women | Your choice</title>
-        <meta name="description" content="Discover your signature fragrance with us | long-lasting fragrance perfume for women and men" />
-      </Head>
+
     <GlobalStyles/>
     <SessionProvider>
    <CartContextProvider>
      <WishlistContextProvider>
       <FilterContextProvider>
 
+      
+      <GoogleAnalytics measurementId="G-T139YJSYZV" />
 
    <Component {...pageProps} />
    <ToastContainer

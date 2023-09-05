@@ -3,11 +3,13 @@ import Image from 'next/image'
 import spicy from  '../public/img/spicy.webp'
 import wood from  '../public/img/wood.webp'
 import Flor from  '../public/img/f.webp'
-
+import banner from '../public/img/321.png'
 
 export default function BottomFeature() {
   return (
  <>
+ 
+   
  <div className="flex justify-center p-4 bg-black">
       <div className="flex flex-col justify-center items-center text-center">
         <div className="text-white text-3xl md:text-5xl font-medium my-2">Discover Your Choice</div>
@@ -74,6 +76,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
       </div>
     
     </div>
+
 
  
  </>

@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "@/components/Footer";
 import Star from "@/components/Star";
+import Head from 'next/head'
 
 
 const ColWrapper = styled.div`
@@ -37,6 +38,12 @@ console.log(product)
   const {addProduct} = useContext(CartContext);
   return (
     <>
+          <Head>
+        <title>{product.title}</title>
+        <meta name="description" content={product.description} />
+        
+
+      </Head>
       <Header />
       <Center>
         <ColWrapper>
