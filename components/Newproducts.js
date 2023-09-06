@@ -155,7 +155,7 @@ console.log(btnState)
 
 
 
-<div className="flex-box p-[2%] ml-3">
+<div className="flex-box p-[2%] lg:p-[4%] ml-3">
 <div key={_id} className="flex-box">
 
 

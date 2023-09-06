@@ -59,6 +59,7 @@ export default function List({price,images,title,_id}) {
 </div>
 </div>
 
+
   </>
   )
 }

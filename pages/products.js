@@ -5,17 +5,15 @@ import { Product } from '/models/Product';
 import React from 'react'
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { useRouter } from 'next/router';
 
-const items = [
-  { id: 1, title: 'Back End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
-  { id: 2, title: 'Front End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
-  { id: 3, title: 'User Interface Designer', department: 'Design', type: 'Full-time', location: 'Remote' },
-]
+
 
 export default function Productspage({products, currentPage,
-  totalPages}) {
+  totalPages,productsPerPage,totalProducts}) {
     console.log({products})
+    const router = useRouter();
+
   return (
     <>
          <Head>
@@ -25,7 +23,7 @@ export default function Productspage({products, currentPage,
       </Head>
     <Header/>
     <div className='center'>
-    <h1 className='title'>All products</h1>
+    <h1 className='title text-center'><b>All products</b></h1>
     </div>
     <div className='StyledProductGrid'>
     {
@@ -36,44 +34,82 @@ export default function Productspage({products, currentPage,
     }
     </div>
 
-    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+    <div className="flex max-sm:justify-between sm:flex sm:flex-1 sm:items-center sm:justify-between">
   <div>
-    <p className="text-sm text-gray-700">
-      Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-      <span className="font-medium">99</span> results
+    <p className="text-sm max-sm:text-[10px] max-sm:mt-2  text-gray-700">
+      Showing <span className="font-medium">1</span> to <span className="font-medium">{productsPerPage}</span> of{' '}
+      <span className="font-medium">{totalProducts}</span> results
     </p>
   </div>
   <div>
     <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-      <a
-        href="#"
-        className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+    <a
+        onClick={() => {
+          if (currentPage > 1) {
+            router.push(`/products?page=${currentPage - 1}`);
+          }
+        }}
+        className="cursor-pointer	 relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
       >
         <span className="sr-only">Previous</span>
-        {/* Add your Previous icon here */}
+        <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z"
+      />
+    </svg>
+
       </a>
       {/* Loop through and render your page numbers here */}
       {Array.from({ length: totalPages }, (_, index) => {
         const page = index + 1;
         return (
           <a
-            key={page}
-            href={`#page-${page}`} // Replace with the actual link
-            className={`relative inline-flex items-center ${
-              page === currentPage ? 'bg-indigo-600 text-white' : 'text-gray-900'
-            } px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`}
-            aria-current={page === currentPage ? 'page' : undefined}
-          >
-            {page}
-          </a>
+          key={page}
+          onClick={() => {
+            router.push(`/products?page=${page}`); // Replace with your actual route
+          }}
+          className={`cursor-pointer	 relative inline-flex items-center ${
+            page === currentPage ? 'bg-black hover:bg-black text-white' : 'text-gray-900'
+          } px-4 max-sm:px-3   py-2 text-sm max-sm:text-[10px] font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`}
+          aria-current={page === currentPage ? 'page' : undefined}
+        >
+          {page}
+        </a>
         );
       })}
-      <a
-        href="#"
-        className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+     <a 
+        onClick={() => {
+          if (currentPage < totalPages) {
+            router.push(`/products?page=${currentPage + 1}`);
+          }
+        }}
+        className="cursor-pointer	 relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
       >
         <span className="sr-only">Next</span>
-        {/* Add your Next icon here */}
+        <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z"
+      />
+    </svg>
+
       </a>
     </nav>
   </div>
@@ -93,7 +129,7 @@ export async function getServerSideProps(context) {
 
   // Retrieve pagination parameters from the query string or use default values
   const page = parseInt(context.query.page) || 1; // Current page (default to 1)
-  const productsPerPage = 6; // Number of products per page (you can adjust this as needed)
+  const productsPerPage = 9; // Number of products per page (you can adjust this as needed)
 
   // Calculate the skip value based on the current page
   const skip = (page - 1) * productsPerPage;
@@ -114,6 +150,8 @@ export async function getServerSideProps(context) {
       products: JSON.parse(JSON.stringify(products)),
       currentPage: page,
       totalPages,
+      productsPerPage,
+      totalProducts,
     },
   };
 }
