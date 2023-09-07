@@ -309,10 +309,7 @@ async function  removewishlist() {
             </div>
           </div>
         </div>
-        {/* <script src="https://cdn.tailwindcss.com"></script>
-                                        <script src="https://kit.fontawesome.com/290d4f0eb4.js" crossorigin="anonymous"></script>
-                                        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                                        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> */}
+   
       </form>
       <Footer />
     </>
@@ -321,10 +318,4 @@ async function  removewishlist() {
 
 export default Login;
 
-//  <input type="email"  id="email_field" value={email} className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={(e) => setEmail(e.target.value)} />
 
-//  <input type="password"
-//                 id="password_field"
-//                 value={password}
-//                  className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-//                  onChange={(e) => setPassword(e.target.value)} />

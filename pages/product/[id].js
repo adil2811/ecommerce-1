@@ -48,7 +48,7 @@ console.log(product)
       <Center>
         <ColWrapper>
           <WhiteBox>
-            <ProductImages images={product.images} />
+            <ProductImages images={product.images} alt={product.title} />
           </WhiteBox>
           <div>
             <div className="title">{product.title}</div>
@@ -120,6 +120,8 @@ export async function getServerSideProps(context) {
   await mongooseConnect();
   const {id} = context.query;
   const product = await Product.findById(id);
+  context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // Cache for 1 hour
+
   return {
     props: {
       product: JSON.parse(JSON.stringify(product)),

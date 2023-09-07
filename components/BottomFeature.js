@@ -30,7 +30,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={wood} alt="" className="rounded-full h-20 w-20" />
+                <Image src={wood} height={50} width={50} alt="" className="rounded-full" />
                 <div className="text-white text-sm font-medium">Wood</div>
               </div>
             </div>
@@ -48,7 +48,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={Flor} alt="" className="rounded-full h-20 w-20" />
+                <Image src={Flor} height={50} width={50} alt="" className="rounded-full " />
                 <div className="text-white text-sm font-medium">Fougère </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={spicy} alt="" className="rounded-full h-20 w-20" />
+                <Image src={spicy} height={50} width={50} alt="" className="rounded-full " />
                 <div className="text-white text-sm font-medium">spicy</div>
               </div>
             </div>

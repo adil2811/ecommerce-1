@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import React from 'react'
 import { BlogPost } from "@/models/Blog";
 import { mongooseConnect } from "@/lib/mongoose";
-import Image from 'next/image'; // Import the Next.js Image component
+import Image from 'next/image';
 
 export default function BlogPage({ blog }) {
   console.log(blog);
@@ -19,10 +19,14 @@ export default function BlogPage({ blog }) {
       <div className="p-5 mx-auto sm:p-10 md:p-16 bg-black text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           {/* Use the Next.js Image component */}
-          <img
+          <Image
             src={blog.images[1]}
             alt={blog.title}
-            className="w-full h-60 sm:h-96 bg-gray-500"
+            width={1920} // Set your preferred width
+            height={1080} // Set your preferred height
+            layout="responsive" // Choose layout type
+            objectFit="cover" // Choose object-fit value
+            className=" sm:h-96 bg-gray-500"
           />
           <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-900">
             <h1 className="space-y-2">
@@ -48,6 +52,7 @@ export async function getServerSideProps(context) {
   await mongooseConnect();
   const { id } = context.query;
   const blog = await BlogPost.findById(id);
+  context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // Cache for 1 hour
 
   // Return the blog data as props
   return {

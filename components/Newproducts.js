@@ -1,4 +1,4 @@
-'use client'
+
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import React from "react";
@@ -11,6 +11,7 @@ import Star from "@/components/Star";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import Image from "next/image";
 
 
 
@@ -167,7 +168,7 @@ console.log(btnState)
 
 </button>
     <Link href={url}>
-        <img className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[0]} alt="product image" />
+        <Image width={100} height={100} className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[0]} alt="product image" />
     </Link>
     <div className="px-0 pb-0 ">
         <Link href={url}>

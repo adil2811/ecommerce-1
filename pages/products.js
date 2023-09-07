@@ -145,6 +145,9 @@ export async function getServerSideProps(context) {
   // Calculate the total number of pages
   const totalPages = Math.ceil(totalProducts / productsPerPage);
 
+  context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // Cache for 1 hour
+
+
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),

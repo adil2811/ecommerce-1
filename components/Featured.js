@@ -3,6 +3,7 @@ import {CartContext} from "/components/Cartcontexts";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
+import Image from 'next/image'; // Import the Next.js Image component
 
 
 
@@ -47,8 +48,14 @@ export default function Featured({product}) {
       </div>
 
       <div className="order-first ml-auto h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
-        <img className="h-full w-full object-cover" src={product.images[0]} width={20} height={20} loading="lazy" />
-      </div>
+      <Image
+              src={product.images[0]}
+              alt={product.title}
+              width={500} // Set your preferred width
+              height={400} // Set your preferred height
+              layout="responsive" // Choose layout type
+              objectFit="cover" // Choose object-fit value
+            />      </div>
     </div>
   </div>
   
