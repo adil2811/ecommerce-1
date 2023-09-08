@@ -108,7 +108,7 @@ const updatemenu = () => {
 <div className="center">
   <div className="wrapper">
     <div className="sm: hidden max-sm:flex">
-  <button className={hamburger} onClick={updatemenu}>
+    <button className={hamburger} onClick={updatemenu} aria-label="Toggle Menu">
             <div className="bar" onClick={updatemenu}/>
           </button>
 
@@ -161,13 +161,12 @@ const updatemenu = () => {
 
 <button id="dropdownInformationButton" onClick={()=>{setOpen(!open)}} data-dropdown-toggle="dropdownInformation" className="max-sm: mr-4 mt-3" type="button">
 <Image
-src={profilepic}
-alt="Picture of the author"
-width={40} 
-height={30} 
-className="rounded-full mt-[-10px] w-auto h-auto"
-// blurDataURL="data:..." automatically provided
-// placeholder="blur" 
+  src={profilepic}
+  alt="Picture of the author"
+  width={40}
+  height={30}
+  className="rounded-full mt-[-10px] w-auto h-auto"
+  loading="lazy" // Add lazy loading attribute
 />
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-2 h-2 mt-1 mr-4 text-white">
   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 4.5l-15 15m0 0h11.25m-11.25 0V8.25" />

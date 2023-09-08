@@ -55,7 +55,9 @@ export default function Featured({product}) {
               height={400} // Set your preferred height
               layout="responsive" // Choose layout type
               objectFit="cover" // Choose object-fit value
-            />      </div>
+              loading="lazy" // Add the lazy loading attribute
+            />
+                </div>
     </div>
   </div>
   

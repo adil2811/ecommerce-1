@@ -162,14 +162,21 @@ console.log(btnState)
 
 <div className=" p-1 mt-2  w-[250px] max-sm:w-[130px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 inline-block justify-between	mr-2 ml-2  ">
 
-<button onClick={addWishList}  className="ml-[90%] max-sm:ml-[84%]" >    
+<button onClick={addWishList}  className="ml-[90%] max-sm:ml-[84%]" aria-label="wishlist button" >    
 {session?.user ? (btnState ? filledHeartIcon : emptyHeartIcon) : emptyHeartIcon}
 
 
 </button>
     <Link href={url}>
-        <Image width={100} height={100} className="rounded-lg ml-3  w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]  " src={images[0]} alt="product image" />
-    </Link>
+    <Image
+  width={100}
+  height={100}
+  className="rounded-lg ml-3 w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]"
+  src={images[0]}
+  alt="product image"
+  srcSet={`${images[0]} 90w, ${images[1]} 256w`}
+  sizes="(max-width: 600px) 90px, 256px"
+/>    </Link>
     <div className="px-0 pb-0 ">
         <Link href={url}>
           <span className='text-[13px] max-sm:text-[9px] text-gray-500 ml-2 p-1 '>{company ? company : 'your choice' } </span>
