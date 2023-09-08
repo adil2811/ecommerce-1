@@ -113,8 +113,8 @@ const updatemenu = () => {
           </button>
 
           <nav className={mobn}>
-          <Link href={'/'}>Home</Link>
-          <Link href={'/blogs'}>blogs</Link>
+          <Link  href={'/'}>Home</Link>
+          <Link href={'/blogs'}>Blogs</Link>
 
           <Link href={'/products'}>All Product</Link>
           <Link href={'/categories'}>Categories</Link>

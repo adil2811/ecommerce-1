@@ -4,6 +4,8 @@ import React from 'react'
 import { BlogPost } from "@/models/Blog";
 import { mongooseConnect } from "@/lib/mongoose";
 import Image from 'next/image';
+import Head from 'next/head';
+
 
 export default function BlogPage({ blog }) {
   console.log(blog);
@@ -15,6 +17,12 @@ export default function BlogPage({ blog }) {
 
   return (
     <>
+         <Head>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.content.slice(0,50) + '...'} />
+        
+
+      </Head>
       <Header />
       <div className="p-5 mx-auto sm:p-10 md:p-16 bg-black text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">

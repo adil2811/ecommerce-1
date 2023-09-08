@@ -40,7 +40,7 @@ console.log(product)
     <>
           <Head>
         <title>{product.title}</title>
-        <meta name="description" content={product.description} />
+        <meta name="description" content={product.description.slice(0,50) + '...'} />
         
 
       </Head>

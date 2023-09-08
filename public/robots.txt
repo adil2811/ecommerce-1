@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://example.com
+Host: https://www.yourchoiceee.com
+
+# Sitemaps
+Sitemap: https://example.com/sitemap.xml
+Sitemap: https://www.yourchoiceee.com/sitemap.xml

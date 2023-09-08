@@ -34,7 +34,7 @@ export default function Featured({product}) {
   return (
     <Link href={url} className="m-auto	">
    <div className="m-auto mt-4  max-w-screen-lg overflow-hidden rounded-xl border shadow-lg md:pl-8  ">
-    <div className="  flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
+    <div className="flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
       <div className="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
         <h1 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-4xl">{product.title}</h1>
         <p className="mt-2 text-lg">{product.company}</p>
@@ -47,7 +47,7 @@ export default function Featured({product}) {
         </button>
       </div>
 
-      <div className="order-first ml-auto h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
+      <div className="order-first ml-auto w-full   bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
       <Image
               src={product.images[0]}
               alt={product.title}
