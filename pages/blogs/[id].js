@@ -28,7 +28,7 @@ export default function BlogPage({ blog }) {
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           {/* Use the Next.js Image component */}
           <Image
-            src={blog.images[1]}
+            src={blog.images[0]}
             alt={blog.title}
             width={1920} // Set your preferred width
             height={1080} // Set your preferred height
