@@ -4,7 +4,7 @@ import spicy from  '../public/img/spicy.webp'
 import wood from  '../public/img/wood.webp'
 import Flor from  '../public/img/f.webp'
 import banner from '../public/img/321.png'
-
+import Link from 'next/link'
 export default function BottomFeature() {
   return (
  <>
@@ -41,7 +41,8 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
                 <div className="flex flex-col md:flex-row items-center justify-center">
                   <div className="items-center justify-center flex py-2">
                     <div className="flex flex-col items-center justify-center text-center">
-                      <div className="text-stone-200 m-2 px-8 text-xs">The Fougère fragrance, a timeless and enduring aromatic theme, encapsulates the feeling of verdant nature. It combines lavender, oakmoss, and coumarin notes to conjure the refreshing aroma of a post-rainforest. Frequently complemented by hints of herbs or citrus, this fragrance style is both revitalizing and refined. With its classic charm and adaptable nature, the Fougère fragrance remains a fundamental element in perfumery, catering to individuals who value the harmonious interplay of freshness and aromatic complexity.</div>
+                      <div className="text-stone-200 m-2 px-8 text-xs">
+                        The Fougère fragrance, a timeless and enduring aromatic theme, encapsulates the feeling of verdant nature. It combines lavender, oakmoss, and coumarin notes to conjure the refreshing aroma of a post-rainforest. Frequently complemented by hints of herbs or citrus, this fragrance style is both revitalizing and refined. With its classic charm and adaptable nature, the Fougère fragrance remains a fundamental element in perfumery, catering to individuals who value the harmonious interplay of freshness and aromatic complexity.</div>
                     </div>
                   </div>
                 </div>
@@ -59,7 +60,8 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
                 <div className="flex flex-col md:flex-row items-center justify-center">
                   <div className="items-center justify-center flex py-2">
                     <div className="flex flex-col items-center justify-center text-center">
-                      <div className="text-stone-200 m-2 px-8 text-xs">A spicy fragrance is a captivating and invigorating olfactory experience that infuses warmth and intensity into the air. Comprising notes like cinnamon, clove, pepper, and nutmeg, it evokes a sense of richness and exotic allure. The harmonious blend of these spicy elements often creates a passionate and energetic ambiance. Whether worn as a personal scent or diffused in a space, the spicy fragrance adds a touch of excitement and complexity, making it a popular choice for those who appreciate the vibrant and bold side of perfumery.</div>
+                      <div className="text-stone-200 m-2 px-8 text-xs">
+                        A spicy fragrance is a captivating and invigorating olfactory experience that infuses warmth and intensity into the air. Comprising notes like cinnamon, clove, pepper, and nutmeg, it evokes a sense of richness and exotic allure. The harmonious blend of these spicy elements often creates a passionate and energetic ambiance. Whether worn as a personal scent or diffused in a space, the spicy fragrance adds a touch of excitement and complexity, making it a popular choice for those who appreciate the vibrant and bold side of perfumery.</div>
                     </div>
                   </div>
                 </div>
@@ -73,8 +75,8 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
           </div>
           {/* Repeat the above structure for the other two testimonials */}
         </div>
-      </div>
-    
+        <Link href={'/smell'} class=" xl:mr-10 mt-4 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Show More</Link>
+        </div>    
     </div>
 
 
