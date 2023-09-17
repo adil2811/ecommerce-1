@@ -4,6 +4,7 @@ import React from 'react'
 import { BlogPost } from "@/models/Blog";
 import Link from 'next/link';
 import {mongooseConnect} from "@/lib/mongoose";
+import Image from 'next/image';
 
 export default function Blogs({blog}) {
   console.log(blog)
@@ -30,8 +31,14 @@ export default function Blogs({blog}) {
             >
               <div className="h-26 w-full overflow-hidden">
              
-                  <img src={post.images[1]} alt="" className="" />
-            
+              <Image
+                  src={post.images[0]} // Set the image source using the src prop
+                  alt=""
+                  width={ 500}
+                  height={500}
+                  layout="fixed" // Change layout type to "fixed"
+
+                />            
               </div>
               <div className="text-sm m-2">{formatDate(post.datePosted)}</div>
               <div className="font-medium text-normal m-2">{post.title}</div>

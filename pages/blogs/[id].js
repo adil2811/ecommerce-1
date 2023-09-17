@@ -8,6 +8,12 @@ import Head from 'next/head';
 
 
 export default function BlogPage({ blog }) {
+  function renderContentWithLineBreaks(content) {
+    const paragraphs = content.split('\n'); // Split content into paragraphs
+    return paragraphs.map((paragraph, index) => (
+      <p key={index}>{paragraph}</p>
+    ));
+  }
   console.log(blog);
 
   // Check if the blog data is available before rendering
@@ -45,8 +51,24 @@ export default function BlogPage({ blog }) {
                 
               </p>
             </h1>
+            
             <div className="text-gray-100">
-              <article>{blog.content}</article>
+              <h2 className='text-xl text-center text-pink-600'>{blog.H1}</h2>
+              <article>              
+                  {renderContentWithLineBreaks(blog.content)}
+              </article>
+              <h3 className='text-xl text-center text-pink-600'>{blog.H2}</h3>
+              <article>              
+                  {renderContentWithLineBreaks(blog.content2)}
+              </article>
+              <h4 className='text-xl text-center text-pink-600'>{blog.H3}</h4>
+              <article>              
+                  {renderContentWithLineBreaks(blog.content3)}
+              </article>
+              <h5 className='text-xl text-center text-pink-600'>{blog.H4}</h5>
+              <article>              
+                  {renderContentWithLineBreaks(blog.content4)}
+              </article>
             </div>
           </div>
         </div>
