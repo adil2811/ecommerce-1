@@ -24,7 +24,6 @@ export default function Home({featuredProduct,newProducts,products}) {
         <title>Best Perfume for Men and Women | Your choice</title>
         <meta name="description" content="Discover your signature fragrance with us | long-lasting fragrance perfume for women and men" />
         
-
       </Head>
 
 <SessionProvider>
