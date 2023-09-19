@@ -297,13 +297,13 @@ async function  removewishlist() {
               <div className="text-center mt-7">
                 <button
                   type="submit"
-                  className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-gradient-to-l from-blue-400 to-emerald-400  font-medium m-2 mb-6 "
+                  className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-gradient-to-l from-black to-blue-400  font-medium m-2 mb-6 "
                 >
                   Sign In
                 </button>
               </div>
             </div>
-            <div className="h-[100%] w-full md:w-1/3  bg-gradient-to-l from-blue-400 to-emerald-400  items-center flex justify-center">
+            <div className="h-[100%] w-full md:w-1/3  bg-gradient-to-l from-black to-blue-400   items-center flex justify-center">
               <div className="text-white text-base font-semibold text-center my-10 space-y-2 m-2">
                 <h1 className="text-5xl">New Here?</h1>
                 <h1 className="">
@@ -311,7 +311,7 @@ async function  removewishlist() {
                 </h1>
                 <Link
                   href={"/register"}
-                  className="bg-white rounded-2xl px-4 text-emerald-400 py-1"
+                  className="bg-white rounded-2xl px-4 text-black py-1"
                 >
                   SignUp
                 </Link>

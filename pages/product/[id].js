@@ -35,7 +35,22 @@ const Price = styled.span`
 export default function ProductPage({product}) {
 console.log(product)
   
-  const {addProduct} = useContext(CartContext);
+const { addProduct } = useContext(CartContext);
+
+const handleAddToCart = () => {
+  addProduct(product._id);
+  toast.success('Add to wishlist!', {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });  
+}
+
   return (
     <>
           <Head>
@@ -103,7 +118,7 @@ console.log(product)
               <h3 className="p-1 text-xl mt-[-3px]"><b>Deal OF The day :</b> </h3> <Price>₹{product.price}</Price>
               </div>
               <div>
-                <button className="button-prime"  onClick={() => addProduct(product._id)}>
+              <button className="button-prime" onClick={handleAddToCart}>
         Add to cart
                 </button>
               </div>

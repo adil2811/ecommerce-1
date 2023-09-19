@@ -26,9 +26,9 @@ export default function Yourorder() {
     <>
     
     <Header/>
- 
+ <div className="h-[100vh]">
     <h1>Order</h1>
-    <table className='basic'>
+    <table className='basic '>
       <thead>
         <tr>
           <td>ID</td>
@@ -61,7 +61,7 @@ export default function Yourorder() {
         ))}
       </tbody>
     </table>
-
+    </div>
 
     
     </>
