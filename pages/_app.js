@@ -60,7 +60,7 @@ export default function App({ Component, pageProps , props }) {
       <FilterContextProvider>
 
       
-      <GoogleAnalytics measurementId="G-T139YJSYZV"  strategy="afterInteractive"  />
+      <GoogleAnalytics measurementId="G-TDEHP563TL"  strategy="afterInteractive"  />
       
 
    <Component {...pageProps} />
