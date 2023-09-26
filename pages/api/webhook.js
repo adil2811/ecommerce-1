@@ -1,8 +1,9 @@
-// pages/api/webhook.js
-
+import { mongooseConnect } from "@/lib/mongoose";
 import { buffer } from 'micro';
-import { stripe } from '@/utils/stripe';
-import { endpointSecret } from '@/config';
+import { Order } from "@/models/Order";
+import Stripe from 'stripe';
+
+// pages/api/webhook.js
 
 export default async (req,res) => {
   if (req.method !== 'POST') {
@@ -27,6 +28,9 @@ export default async (req,res) => {
       const paid = data.payment_status === 'paid';
       if (orderId && paid) {
         // Update your order in the database here
+        await Order.findByIdAndUpdate(orderId,{
+          paid:true,
+        })
       }
       break;
     default:
@@ -35,3 +39,4 @@ export default async (req,res) => {
 
   return res.status(200).end();
 };
+
