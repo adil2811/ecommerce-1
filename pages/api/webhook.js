@@ -19,7 +19,7 @@ export default async (req, res) => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
     // Verify the Stripe signature using your production webhook secret
-    event = stripe.webhooks.constructEvent(buf, sig, process.env.STRIPE_WEBHOOK_SECRET_PROD);
+    event = stripe.webhooks.constructEvent(buf, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
@@ -27,7 +27,7 @@ export default async (req, res) => {
   await mongooseConnect(); // Connect to your MongoDB database
 
   switch (event.type) {
-    case 'checkout.session.completed':
+    case 'payment_intent.succeeded':
       const data = event.data.object;
       const orderId = data.metadata.orderId;
       const paid = data.payment_status === 'paid';
