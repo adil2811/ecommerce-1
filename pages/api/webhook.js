@@ -1,11 +1,9 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { buffer } from 'micro';
-import { Order } from "@/models/Order";
 import Stripe from 'stripe';
+import { buffer } from 'micro';
+import { Order } from '@/models/Order';
+import { mongooseConnect } from '@/lib/mongoose';
 
-// pages/api/webhook.js
-
-export default async (req,res) => {
+export default async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).end(); // Method Not Allowed
   }
@@ -16,10 +14,17 @@ export default async (req,res) => {
 
   try {
     const buf = await buffer(req);
-    event = stripe.webhooks.constructEvent(buf, sig, Process.env.STRIPE_WEBHOOK_SECRET);
+
+    // Initialize Stripe with your production secret key
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+    // Verify the Stripe signature using your production webhook secret
+    event = stripe.webhooks.constructEvent(buf, sig, process.env.STRIPE_WEBHOOK_SECRET_PROD);
   } catch (err) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
+
+  await mongooseConnect(); // Connect to your MongoDB database
 
   switch (event.type) {
     case 'checkout.session.completed':
@@ -28,9 +33,12 @@ export default async (req,res) => {
       const paid = data.payment_status === 'paid';
       if (orderId && paid) {
         // Update your order in the database here
-        await Order.findByIdAndUpdate(orderId,{
-          paid:true,
-        })
+        try {
+          const updatedOrder = await Order.findByIdAndUpdate(orderId, { paid: true });
+          console.log(`Order ${updatedOrder._id} has been updated as paid.`);
+        } catch (error) {
+          console.error(`Error updating order: ${error.message}`);
+        }
       }
       break;
     default:
@@ -39,4 +47,3 @@ export default async (req,res) => {
 
   return res.status(200).end();
 };
-
