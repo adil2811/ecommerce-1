@@ -43,7 +43,7 @@ export default function Yourorder() {
           <tr key={order._id}>
             <td >{(new Date(order.createdAt)).toUTCString()}</td>
             <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
-              {order.paid ? 'Order ready to ship' : 'Payment fail'}
+              {order.paid ? 'Order Shipped ' : 'Status Pending '}
             </td>
             <td>{order.name}<br/> {order.email}
                 
