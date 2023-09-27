@@ -1,10 +1,9 @@
 const stripe = require('stripe')(process.env.STRIPE_SK);
-import {mongooseConnect} from "@/lib/mongoose";
-import {buffer} from 'micro';
-import {Order} from "@/models/Order";
+import { mongooseConnect } from "@/lib/mongoose";
+import { buffer } from 'micro';
+import { Order } from "@/models/Order";
 
-const endpointSecret = process.env.STRIPE_SECRET_KEY;
-
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -28,21 +27,17 @@ export default async function handler(req, res) {
           }
           break;
         default:
-          console.log(`Unhandled event type ${event.type}`);
+          console.log(`Unhandled event type: ${event.type}`);
       }
 
       res.status(200).send('OK');
     } catch (err) {
       console.error('Webhook error:', err);
-      res.status(400).send(`Webhook Error: ${err.message}`);
+      // Log the error and respond with a generic message
+      res.status(500).send('Webhook Error');
     }
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
 }
-
-// bright-thrift-cajole-lean
-// acct_1Lj5ADIUXXMmgk2a
-
-
