@@ -1,48 +1,46 @@
-import {mongooseConnect} from "@/lib/mongoose";
 const stripe = require('stripe')(process.env.STRIPE_SK);
+import {mongooseConnect} from "@/lib/mongoose";
 import {buffer} from 'micro';
 import {Order} from "@/models/Order";
 
 const endpointSecret = process.env.STRIPE_SECRET_KEY;
 
-export default async function handler(req,res) {
-  await mongooseConnect();
-  const sig = req.headers['stripe-signature'];
 
-  let event;
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const sig = req.headers['stripe-signature'];
 
-  try {
-    event = stripe.webhooks.constructEvent(await buffer(req), sig, endpointSecret);
-  } catch (err) {
-    res.status(400).send(`Webhook Error: ${err.message}`);
-    return;
-  }
+    try {
+      const event = stripe.webhooks.constructEvent(await buffer(req), sig, endpointSecret);
 
-  // Handle the event
-  switch (event.type) {
-    case 'payment_intent.succeeded':
-    case 'checkout.session.completed':
-      const data = event.data.object;
-      const orderId = data.metadata.orderId;
-      const paid = data.payment_status === 'paid';
-      if (orderId && paid) {
-        await Order.findByIdAndUpdate(orderId,{
-          paid:true,
-        });
-        console.log(`Order ${orderId} marked as paid`);
-
+      // Handle the event
+      switch (event.type) {
+        case 'payment_intent.succeeded':
+        case 'checkout.session.completed':
+          const data = event.data.object;
+          const orderId = data.metadata.orderId;
+          const paid = data.payment_status === 'paid';
+          if (orderId && paid) {
+            await Order.findByIdAndUpdate(orderId, {
+              paid: true,
+            });
+            console.log(`Order ${orderId} marked as paid`);
+          }
+          break;
+        default:
+          console.log(`Unhandled event type ${event.type}`);
       }
-      break;
-    default:
-      console.log(`Unhandled event type ${event.type}`);
+
+      res.status(200).send('OK');
+    } catch (err) {
+      console.error('Webhook error:', err);
+      res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+  } else {
+    res.setHeader('Allow', 'POST');
+    res.status(405).end('Method Not Allowed');
   }
-
-  res.status(200).send('ok');
 }
-
-export const config = {
-  api: {bodyParser:false,}
-};
 
 // bright-thrift-cajole-lean
 // acct_1Lj5ADIUXXMmgk2a
