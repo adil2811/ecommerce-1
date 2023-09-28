@@ -7,6 +7,7 @@ export const CartContext = createContext({});
 export function CartContextProvider({children}) {
     const ls = typeof window !== "undefined" ? window.localStorage : null
     const [cartProducts,setCartProducts] = useState([]);
+    const [selectedSize, setSelectedSize] = useState(true); // Default size is 50ml
     const [searchBar,setSearchBar] = useState(false)
     const [activeStyle,setActiveStyle] = useState('ml-[100%] hidden z-10 ');
 
@@ -37,7 +38,7 @@ export function CartContextProvider({children}) {
         ls.clear();
       }
     return (
-<CartContext.Provider value={{cartProducts,setCartProducts,addProduct,removeProduct,clearCart,setSearchBar,searchBar,activeStyle,setActiveStyle}}>
+<CartContext.Provider value={{cartProducts,setCartProducts,addProduct,removeProduct,clearCart,setSearchBar,searchBar,activeStyle,setActiveStyle,selectedSize, setSelectedSize}}>
       {children}
     </CartContext.Provider>    )
 }

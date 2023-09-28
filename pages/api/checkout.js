@@ -24,7 +24,7 @@ export default async function handler(req, res){
       const productInfo = productsInfos.find(p => p._id.toString() === productId);
       const quantity = productsIds.filter(id => id === productId)?.length || 0;
       if (quantity > 0 && productInfo) {
-        const unitAmount = Math.round(productInfo.price * 100); // Convert to paise
+        const unitAmount = Math.round(productInfo.price * 100 ); // Convert to paise
 
         line_items.push({
           quantity,

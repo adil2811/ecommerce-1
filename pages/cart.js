@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 // banke hawa mai
 export default function Cart() {
@@ -18,6 +19,8 @@ export default function Cart() {
   const { data: session } = useSession();
 
 
+
+  
 console.log(session)
 
 
@@ -75,13 +78,20 @@ console.log(session)
     return (
       <>
        <Header/>
-       <div className="Center">
-       <div className="Box1">
-
-              <h1>Thanks for your order!</h1>
-              <p>We will email you when your order will be sent.</p>
-         </div>
-         </div>
+       <div className="flex items-center justify-center h-screen">
+      <div className="flex-col space-y-4 text-center">
+        <div className="text-green-600 text-2xl font-medium">Order Recived</div>
+        <div className="text-5xl font-medium">Thank You</div>
+        <div className="text-gray-500">continue shopping</div>
+        <div className="flex items-center justify-center">
+        <Link href="/">
+          <div className="bg-black px-6 py-3 text-white font-medium rounded-lg hover:scale-105 cursor-pointer hover:bg-green-600">Visit Homepage</div>
+          </Link>
+        </div>
+        
+      </div>
+    </div>
+         <Footer/>
       </>
     );
   }

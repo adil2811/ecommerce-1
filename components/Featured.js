@@ -55,7 +55,7 @@ export default function Featured({product}) {
               height={400} // Set your preferred height
               layout="responsive" // Choose layout type
               objectFit="cover" // Choose object-fit value
-              loading="eager" // Set priority to true for above-the-fold image
+              loading="lazy" // Set priority to true for above-the-fold image
             />
                 </div>
     </div>
