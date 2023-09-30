@@ -14,6 +14,14 @@ export default async function handler(req, res){
       postalCode,streetAddress,country,
       cartProducts,
     } = req.body;
+
+
+     // Check if required fields are missing
+
+
+
+
+
     await mongooseConnect();
     const productsIds = cartProducts;
     const uniqueIds = [...new Set(productsIds)];

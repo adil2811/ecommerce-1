@@ -7,11 +7,15 @@ export default async function handler(req, res) {
     try {
       await mongooseConnect();
 
-
       const { name, email, password, wishlist } = req.body;
 
-      const userExists = await User.findOne({ email });
+      // Validate input data
+      if (!name || !email || !password ) {
+        return res.status(400).json({ error: 'Invalid input data' });
+      }
 
+      // Check if the email is already in use
+      const userExists = await User.findOne({ email });
       if (userExists) {
         return res.status(400).json({ error: 'User already exists' });
       }

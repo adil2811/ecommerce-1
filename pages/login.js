@@ -98,43 +98,55 @@ async function  removewishlist() {
 
 
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+const submitHandler = async (e) => {
+  e.preventDefault();
 
+  try {
+    const data = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
 
-    try {
-      // Perform the user sign-in operation using the provided credentials
-          
-
-      const data = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
-      });
-      toast.success('your logged in', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
-
-     
-      location.reload();
-
-        
-    } catch (error) {
-      // Log the error to the console
-      console.log("Error caught:", error); // Log the error for debugging
-  
-      // Display an error toast notification for failed login
- 
+    // Check if the authentication was successful
+    if (data.error) {
+      // Handle authentication error here
+      throw new Error(data.error);
     }
 
-  };
+    // Handle successful authentication
+    toast.success("You have been successfully logged in", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    location.reload
+
+    // Optionally, you can redirect the user to a different page on successful login
+    // window.location.href = "/dashboard"; // Replace with your desired URL
+  } catch (error) {
+    // Log the error to the console for debugging
+    console.error("Error caught:", error);
+
+    // Display an error toast notification for failed login
+    toast.error("Login failed. Please check your credentials and try again", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+};
+
   console.log(products)
 
   console.log(session); 
@@ -171,7 +183,7 @@ async function  removewishlist() {
 
 
       {wishlistProducts.length === 0 ? (
-        <p>Your wishlist is empty.</p>
+        <p className="h-screen">Your wishlist is empty.</p>
       ) : (
         <div className=" grid gap-4 grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2  grid-rows-3 sm:grid-rows-3 grid-rows-2 lg:grid-rows-4 sm:grid-rows-3 grid-rows-2 ">
             {products.map((product) => (
