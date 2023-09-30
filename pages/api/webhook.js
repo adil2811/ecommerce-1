@@ -20,7 +20,7 @@ export default async function handler(req,res) {
 
   // Handle the event
   switch (event.type) {
-    case 'checkout.session.completed':
+    case 'payment_intent.succeeded':
       const data = event.data.object;
       const orderId = data.metadata.orderId;
       const paid = data.payment_status === 'paid';
@@ -40,8 +40,4 @@ export default async function handler(req,res) {
 export const config = {
   api: {bodyParser:false,}
 };
-
-// bright-thrift-cajole-lean
-// acct_1Lj5ADIUXXMmgk2a
-
 
