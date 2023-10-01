@@ -82,7 +82,7 @@ const handleAddToCart = () => {
 </ul>
 
 <p className="mt-5 ">{product.description}</p>
-<span className=" text-gray-600 text-[12px]"> 50 ML Spray Bottle<br/>For customized bottle contact +91 845050281</span>
+<span className=" text-gray-600 text-[12px]"> 50 ML Spray Bottle<br/>Note - For customized or selective bottle contact +91 8452050281</span>
 
 
 <div className="  text-gray-700  flex mt-4 space-x-11 > * + *	">
