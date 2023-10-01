@@ -21,6 +21,8 @@ export default function Home({featuredProduct,newProducts,products}) {
     <>
                
                <Head>
+               <link rel="icon" href="public\favicon.ico" type="image/x-icon" />
+
         <title>Best Perfume for Men and Women | Yourchoiceee</title>
         <meta name="description" content="Discover your signature fragrance with us | long-lasting fragrance perfume and Attar for women and men" />
         
