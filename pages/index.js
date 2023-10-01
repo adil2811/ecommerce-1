@@ -22,7 +22,7 @@ export default function Home({featuredProduct,newProducts,products}) {
                
                <Head>
         <title>Best Perfume for Men and Women | Yourchoiceee</title>
-        <meta name="description" content="Discover your signature fragrance with us | long-lasting fragrance perfume for women and men" />
+        <meta name="description" content="Discover your signature fragrance with us | long-lasting fragrance perfume and Attar for women and men" />
         
       </Head>
 

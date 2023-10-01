@@ -30,7 +30,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={wood} height={50} width={50} alt="" className="rounded-full" />
+                <Image src={wood} height={50} width={50} alt="ariana grande cloud perfume zara red temptation love don't be shy burnt hair perfume love by kilian dossier sexxy shoo perfume price sexxy shoo perfume chloe love" className="rounded-full" />
                 <div className="text-white text-sm font-medium">Wood</div>
               </div>
             </div>
@@ -49,7 +49,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={Flor} height={50} width={50} alt="" className="rounded-full " />
+                <Image src={Flor} height={50} width={50} alt="musk scent cloud by ariana grande the fragrance shop discount code carnal flower zara violet blossom vibrant leather tous love me amarige perfume love don't be shy perfume far away perfume moncler perfume zara wonder rose perfume mecca perfume lattafa suqraat zudio perfume attar shop near me resala arabian oud perfume billie eilish douglas perfume carolina herrera 212 sexy moncler parfum halfeti perfume apple perfume splendor perfume sexxy shoo perfume 100ml price" className="rounded-full " />
                 <div className="text-white text-sm font-medium">Fougère </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ The captivating charm of wood fragrance endures, presenting a variety of captiva
               </div>
               <div className="h-6 w-6 bg-gray-600 -mt-8 mb-4 origin-center rotate-45"></div>
               <div className="flex flex-col items-center justify-center">
-                <Image src={spicy} height={50} width={50} alt="" className="rounded-full " />
+                <Image src={spicy} height={50} width={50} alt='nanette lepore perfume oniro perfume eau toilette touch perfume hollister parfum serge lutens perfume splash perfume dazzle perfume zara rose perfume' className="rounded-full " />
                 <div className="text-white text-sm font-medium">spicy</div>
               </div>
             </div>

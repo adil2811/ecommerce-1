@@ -27,13 +27,14 @@ export default function Yourorder() {
     
     <Header/>
  <div className="h-[100vh]">
-    <h1>Order</h1>
+    <h2 className="text-2xl text-center">Order</h2>
     <table className='basic '>
       <thead>
         <tr>
-          <td>ID</td>
+          <td>Date</td>
           <td>Paid</td>
           <td>Recipients</td>
+          <td>Adress</td>
           <td>Products</td>
 
         </tr>
@@ -43,16 +44,21 @@ export default function Yourorder() {
           <tr key={order._id}>
             <td >{(new Date(order.createdAt)).toUTCString()}</td>
             <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
-              {order.paid ? 'Order Shipped ' : 'Status Pending '}
+              {order.paid ? 'Order Shipped ' : 'Payment Declined '}
             </td>
             <td>{order.name}<br/> {order.email}
                 
             
             </td>
             <td>
+              address={order?.streetAddress} <br/>
+            pincode=  {order?.postalCode} <br/> 
+             country= {order?.country}
+            </td>
+            <td>
               {order.line_items.map((l,index) => (
                 <div key={index} >
-                {l.price_data?.product_data.name}x
+                {l.price_data?.product_data.name} x=
                 {l.quantity}<br/>
                 </div>
               ))}

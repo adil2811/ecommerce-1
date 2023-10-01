@@ -3,6 +3,15 @@ import Link from 'next/link'
 
 
 export default function Footer() {
+    const phoneNumber = '+918452050281'; // Replace with your phone number
+  const emailAddress = 'skadil718@gmail.com'; // Replace with your email address
+
+  const openWhatsApp = () => {
+    const whatsappUrl = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappUrl);
+  };
+    
+    
   return (
     <div>
        <div className="bg-black p-4 items-center">
@@ -14,8 +23,10 @@ export default function Footer() {
                 className="text-white pb-[36px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                 Inform </h1> <span className="text-white font-sans uppercase font-normal tracking-wider">ation</span>
         </div>
-        
+        <p className='mr-4'>
+
         In the realm of fragrances, where every scent carries the threads of memories and emotions, there is a company that stands out, encapsulating the very essence of opulence and elegance. Allow us to introduce you to EnchantScents, a perfumery that has reshaped the art of fragrance creation and narrative since its establishment.
+        </p>
     </div>
     <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
         <div>
@@ -66,12 +77,17 @@ export default function Footer() {
             <p className=""> Amin Building ground floor shop 10 JJ
                             <br/>  (India) </p>
         </div>
-        <div className="leading-7 mt-4 text-[15px] font-[500]">
+        <div className=" justify-start leading-7 mt-5 text-[15px] font-[500]">
           
-            <p className="space-x-3 hover:text-[#cacaca]"> <i className="fa fa-phone text-[17px]"></i> 8452050281( <span className="text-[13px] font-[500]">General Enquiry</span> ) </p>
-          
-            <p className="space-x-3 hover:text-[#cacaca]"> 
-                    skadil718@gmail.com </p>
+        <p className=" ml-[-10px] space-x-3 cursor-pointer" onClick={openWhatsApp}>
+        <i className="fa fa-whatsapp text-[17px]"></i>
+        <strong className="text-[#8b8b8b] text-[15px] tracking-wide">
+          WhatsApp: {phoneNumber}
+        </strong>
+      </p>          
+            <a href={`mailto:${emailAddress}`} className="text-[#8b8b8b] text-[15px] tracking-wide">
+          Email: {emailAddress}
+        </a>
         </div>
     </div>
 </div>

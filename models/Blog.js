@@ -10,6 +10,10 @@ const blogPostSchema = new Schema({
     type: String,
     required: true,
   } ,// Description or meta description
+  alttitle :{
+    type: String,
+    required: true,
+  },
   H1: String, // Heading 1
   content: String, // Content for Heading 1
   H2: String, // Heading 2

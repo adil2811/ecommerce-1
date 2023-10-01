@@ -13,7 +13,7 @@ export default function Cart() {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [postalCode, setPostalCode] = useState("");
-  const [streetAdress, setStreetAdress] = useState("");
+  const [streetAddress, setstreetAddress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess,setIsSuccess] = useState(false);
   const { data: session } = useSession();
@@ -56,7 +56,7 @@ console.log(session)
       email,
       city,
       postalCode,
-      streetAdress,
+      streetAddress,
       country,
       cartProducts,
     });
@@ -202,9 +202,9 @@ console.log(session)
                 className="styledinput mt-2"
                 type="text"
                 placeholder="Street Address"
-                name="streetAdress"
-                value={streetAdress}
-                onChange={(ev) => setStreetAdress(ev.target.value)}
+                name="streetAddress"
+                value={streetAddress}
+                onChange={(ev) => setstreetAddress(ev.target.value)}
               />
               <input
                 className="styledinput mt-2"

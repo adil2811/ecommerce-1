@@ -50,7 +50,7 @@ export default function Featured({product}) {
       <div className="order-first ml-auto w-full   bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
       <Image
               src={product.images[0]}
-              alt={product.title}
+              alt={product?.alttitle}
               width={500} // Set your preferred width
               height={400} // Set your preferred height
               layout="responsive" // Choose layout type

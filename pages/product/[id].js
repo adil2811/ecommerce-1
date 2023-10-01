@@ -51,6 +51,7 @@ const handleAddToCart = () => {
     });  
 }
 
+
   return (
     <>
           <Head>
@@ -63,7 +64,7 @@ const handleAddToCart = () => {
       <Center>
         <ColWrapper>
           <WhiteBox>
-            <ProductImages images={product.images} alt={product.title} />
+            <ProductImages images={product.images} alt={product?.alttitle} />
           </WhiteBox>
           <div>
             <div className="title">{product.title}</div>
@@ -81,7 +82,7 @@ const handleAddToCart = () => {
 </ul>
 
 <p className="mt-5 ">{product.description}</p>
-<span className=" text-gray-600 text-[12px]"> 50 ML Spray Bottle</span>
+<span className=" text-gray-600 text-[12px]"> 50 ML Spray Bottle<br/>For customized bottle contact +91 845050281</span>
 
 
 <div className="  text-gray-700  flex mt-4 space-x-11 > * + *	">

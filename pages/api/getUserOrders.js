@@ -11,8 +11,11 @@ export default async function handler(req, res) {
   try {
     await mongooseConnect();
 
-    const orders = await Order.find({ email: userEmail });
-    
+    // Find orders for the user, sorted by a timestamp field (e.g., createdAt) in descending order
+    const orders = await Order.find({ email: userEmail })
+      .sort({ createdAt: -1 }) // This sorts by createdAt in descending order
+      .exec();
+
     res.status(200).json(orders);
   } catch (error) {
     console.error('Error retrieving user orders:', error);

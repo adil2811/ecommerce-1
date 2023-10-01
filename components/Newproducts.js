@@ -22,6 +22,7 @@ import Image from "next/image";
 export default function Newproducts({
   _id,
   title,
+  alttitle,
   description,
   company,
   images,
@@ -173,7 +174,7 @@ console.log(btnState)
   height={100}
   className="rounded-lg ml-3 w-[200px] max-sm:w-[90px] h-[150px] max-sm:h-[80px]"
   src={images[0]}
-  alt="product image"
+  alt={alttitle}
   srcSet={`${images[0]} 90w, ${images[1]} 256w`}
   sizes="(max-width: 600px) 90px, 256px"
 />    </Link>
