@@ -37,10 +37,11 @@ export default function Home({featuredProduct,newProducts,products}) {
 
 
     <Featured product={featuredProduct} />
+
     {
       newProducts.map((product) =>{
         return <Newproducts key={product._id} {...product}  />
-
+        
       })
     }
     <BottomFeature/>

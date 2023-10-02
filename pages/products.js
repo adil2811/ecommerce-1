@@ -34,7 +34,7 @@ export default function Productspage({products, currentPage,
     }
     </div>
 
-    <div className="flex max-sm:justify-between sm:flex sm:flex-1 sm:items-center sm:justify-between">
+    <div className="flex mb-3 max-sm:justify-between sm:flex sm:flex-1 sm:items-center sm:justify-between">
   <div>
     <p className="text-sm max-sm:text-[10px] max-sm:mt-2  text-gray-700">
       Showing <span className="font-medium">1</span> to <span className="font-medium">{productsPerPage}</span> of{' '}

@@ -51,11 +51,13 @@ const handleAddToCart = () => {
     });  
 }
 
+const percentageDiscount = ((product.disprice - product.price) / product.disprice) * 100;
 
   return (
     <>
           <Head>
         <title>{product.title}</title>
+        
         <meta name="description" content={product.description.slice(0,50) + '...'} />
         
 
@@ -68,6 +70,11 @@ const handleAddToCart = () => {
           </WhiteBox>
           <div>
             <div className="title">{product.title}</div>
+            <span
+  class="inline-block whitespace-nowrap rounded-[0.27rem] bg-red-800 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-neutral-50 dark:bg-neutral-900">
+  Deal Of the Day {Math.ceil(percentageDiscount)}% Discount
+</span>
+
             <div className="flex  mt-2  ">
            <Star  stars={product.rating}  reviews={4}/>
 </div>

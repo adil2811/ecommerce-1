@@ -9,7 +9,7 @@ import axios from "axios";
 
 const FilterContext = createContext();
 
-const API = 'api/products'
+const API = 'api/getallproducts'
 const initialState = {
     filter_products: [],
     all_products: [],
