@@ -8,6 +8,7 @@ import { SessionProvider } from 'next-auth/react';
 import Footer from '@/components/Footer';
 import BottomFeature from '@/components/BottomFeature';
 import Head from 'next/head'
+import FeatureSlider from '@/components/FeatureSlider';
 
 
 
@@ -34,7 +35,7 @@ export default function Home({featuredProduct,newProducts,products}) {
     <FilterContextProvider product={products}/>
 
 
-
+<FeatureSlider/>
 
     <Featured product={featuredProduct} />
 
