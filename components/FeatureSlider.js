@@ -14,14 +14,13 @@ export default function FeatureSlider() {
         />
         <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20" />
       </div>
-      <div className="lg:ml-20 ">
-      <h1 class="text-red-600 text-2xl md:text-4xl lg:text-6xl m font-bold">
-    <span class="bg-black bg-opacity-10">+50% Off On Every perfume <br/> Limited Period </span>
+      <div className="absoulte -top-3 lg:ml-20 ">
+      <h1 class="text-yellow-600 text-2xl md:text-4xl lg:text-6xl m font-bold">
+    <span class="bg-black bg-opacity-5 ">+50% Off On Every perfume <br/> <span className='text-red-800 mt-5 '>Limited Period </span></span>
   </h1>
- 
-  
-      
-      </div>
+   </div>
+
+   
     </div>
   )
 }
