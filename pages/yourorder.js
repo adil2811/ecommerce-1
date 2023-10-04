@@ -26,47 +26,51 @@ export default function Yourorder() {
     <>
     
     <Header/>
- <div className="h-[100vh]">
-    <h2 className="text-2xl text-center">Order</h2>
-    <table className='basic '>
-      <thead>
-        <tr>
-          <td>Date</td>
-          <td>Paid</td>
-          <td>Recipients</td>
-          <td>Adress</td>
-          <td>Products</td>
-
-        </tr>
-      </thead> 
-      <tbody>
-        {orders.length > 0 && orders.map(order => (
-          <tr key={order._id}>
-            <td >{(new Date(order.createdAt)).toUTCString()}</td>
-            <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
-              {order.paid ? 'Order Shipped ' : 'Payment Declined '}
-            </td>
-            <td>{order.name}<br/> {order.email}
-                
-            
-            </td>
-            <td>
-              address={order?.streetAddress} <br/>
-            pincode=  {order?.postalCode} <br/> 
-             country= {order?.country}
-            </td>
-            <td>
-              {order.line_items.map((l,index) => (
-                <div key={index} >
-                {l.price_data?.product_data.name} x=
-                {l.quantity}<br/>
-                </div>
+    <div className="h-[100vh]">
+      <h2 className="text-2xl text-center">Order</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Paid</th>
+              <th>Recipients</th>
+              <th>Address</th>
+              <th>Products</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.length > 0 &&
+              orders.map((order) => (
+                <tr key={order._id}>
+                  <td>{new Date(order.createdAt).toUTCString()}</td>
+                  <td className={order.paid ? 'text-green-600' : 'text-red-600'}>
+                    {order.paid ? 'Order Shipped' : 'Payment Declined'}
+                  </td>
+                  <td>
+                    {order.name}
+                    <br />
+                    {order.email}
+                  </td>
+                  <td>
+                    address={order?.streetAddress} <br />
+                    pincode={order?.postalCode} <br />
+                    country={order?.country}
+                  </td>
+                  <td>
+                    {order.line_items.map((l, index) => (
+                      <div key={index}>
+                        {l.price_data?.product_data.name} x=
+                        {l.quantity}
+                        <br />
+                      </div>
+                    ))}
+                  </td>
+                </tr>
               ))}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     
