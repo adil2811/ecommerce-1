@@ -4,7 +4,7 @@ import img from '../public/img/aboutus.jpg'
 
 export default function FeatureSlider() {
   return (
-    <div className="flex flex-col space-y-2 py-16 h-[25vh] md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 lg:pl-24 relative">
+    <div className="flex flex-col space-y-2 py-16 h-[25vh] md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 lg:pl-24 relative -z-10">
       <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[95vh] -z-10">
         <Image
           src={img}
