@@ -16,6 +16,15 @@ module.exports = {
         
       },
     ],
+    head: {
+      // Add a link to your favicon in the <head> section
+      link: [
+        {
+          rel: 'icon',
+          href: '/favicon.ico', // Path to your favicon.ico file
+        },
+      ],
+    },
   },
   webpack: (config) => {
     config.module.rules.push({
