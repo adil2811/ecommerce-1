@@ -23,9 +23,8 @@ export default function Footer() {
                 className="text-white pb-[36px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
                 Inform </h1> <span className="text-white font-sans uppercase font-normal tracking-wider">ation</span>
         </div>
-        <p className='mr-4'>
-
-        In the realm of fragrances, where every scent carries the threads of memories and emotions, there is a company that stands out, encapsulating the very essence of opulence and elegance. Allow us to introduce you to EnchantScents, a perfumery that has reshaped the art of fragrance creation and narrative since its establishment.
+        <p className='mr-4 '>
+        Introducing YourChoiceee: a perfumery that redefines fragrance creation with opulence and elegance. Each scent is a masterpiece, blending rare ingredients and storytelling. From alluring florals to masculine colognes, YourChoiceee offers an unforgettable sensory experience. Their bottles are art, and each fragrance comes with a captivating narrative. Experience luxury and sophistication with YourChoiceee – where memories and emotions intertwine in every drop.
         </p>
     </div>
     <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
