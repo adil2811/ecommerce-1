@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ Projects Summary -
+This is an Ecommerce Projects which have a admin panel connected to it from which we can add update delete blogs and products 
+the project have stripe connected every ecommerce feature.
 
 ## Getting Started
 
