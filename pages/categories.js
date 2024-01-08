@@ -38,7 +38,7 @@ export default function Categories() {
           <div className="home_list-wrap">
             <div className="home_list-wrap-1"><Sort/></div>
             <div className="home_list-wrap-2">
-  {filter_products.slice(0, 20).map((product) => {
+  {filter_products.slice(0, 50).map((product) => {
     return <List {...product} key={product._id} />;
   })}
 </div>

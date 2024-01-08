@@ -26,7 +26,7 @@ export default function Yourorder() {
     <>
     
     <Header/>
-    <div className="h-[100vh]">
+    <div className="h-[100vh] ">
       <h2 className="text-2xl text-center">Order</h2>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">

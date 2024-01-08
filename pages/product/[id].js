@@ -15,6 +15,7 @@ import Head from 'next/head'
 
 
 const ColWrapper = styled.div`
+
   display: grid;
   grid-template-columns: 1fr;
   @media screen and (min-width: 768px) {
@@ -63,9 +64,9 @@ const percentageDiscount = ((product.disprice - product.price) / product.dispric
 
       </Head>
       <Header />
-      <Center>
+      <Center >
         <ColWrapper>
-          <WhiteBox>
+          <WhiteBox >
             <ProductImages images={product.images} alt={product?.alttitle} />
           </WhiteBox>
           <div>

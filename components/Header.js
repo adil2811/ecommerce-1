@@ -182,7 +182,7 @@ const updatemenu = () => {
 
 </div>
 
-<div  className={`dropdown-menu ${open? 'active' : 'inactive'} mt-[-23px] ml-[82%] max-sm:ml-[51%] w-[15%] max-sm:w-[37%] `}>
+<div  className={`dropdown-menu ${open? 'active' : 'inactive'} mt-[-23px] ml-[82%] max-sm:ml-[51%] w-[15%] max-sm:w-[37%]  `}>
 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
 <div className="text-white">{data?.user.name ? data?.user.name : ' Hello,'}</div>
 <div className="text-white font-medium truncate" >{data?.user.email ? data?.user.email : ' please log in'}</div>

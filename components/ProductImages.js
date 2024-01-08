@@ -8,6 +8,7 @@ const BigImage = styled.div`
   position: relative;
   width: 100%;
   height: 0;
+  
   padding-bottom: 100%; /* Maintain aspect ratio */
 `;
 
@@ -36,6 +37,7 @@ const ImageButton = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+ 
   position: relative;
 `;
 
@@ -47,7 +49,7 @@ export default function ProductImages({ images, alt  }) {
       <ImageWrapper>
         <BigImage>
           {/* Use Next.js Image component for the big image */}
-          <Image src={activeImage} layout="fill" objectFit="contain" alt={alt} />
+          <Image className=" " src={activeImage} layout="fill" objectFit="contain" alt={alt} />
         </BigImage>
       </ImageWrapper>
       <ImageButtons>
