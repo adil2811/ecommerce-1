@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 
 export default function Footer() {
-    const phoneNumber = '+918452050281'; // Replace with your phone number
-  const emailAddress = 'skadil718@gmail.com'; // Replace with your email address
+    const phoneNumber = '+918452050281'; 
+  const emailAddress = 'skadil718@gmail.com'; 
 
   const openWhatsApp = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}`;

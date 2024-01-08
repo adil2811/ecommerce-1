@@ -68,14 +68,13 @@ export default function Productspage({products, currentPage,
     </svg>
 
       </a>
-      {/* Loop through and render your page numbers here */}
       {Array.from({ length: totalPages }, (_, index) => {
         const page = index + 1;
         return (
           <a
           key={page}
           onClick={() => {
-            router.push(`/products?page=${page}`); // Replace with your actual route
+            router.push(`/products?page=${page}`); 
           }}
           className={`cursor-pointer	 relative inline-flex items-center ${
             page === currentPage ? 'bg-black hover:bg-black text-white' : 'text-gray-900'
@@ -127,22 +126,17 @@ export default function Productspage({products, currentPage,
 export async function getServerSideProps(context) {
   await mongooseConnect();
 
-  // Retrieve pagination parameters from the query string or use default values
-  const page = parseInt(context.query.page) || 1; // Current page (default to 1)
-  const productsPerPage = 9; // Number of products per page (you can adjust this as needed)
+  const page = parseInt(context.query.page) || 1; 
+  const productsPerPage = 9; 
 
-  // Calculate the skip value based on the current page
   const skip = (page - 1) * productsPerPage;
 
-  // Fetch products with pagination
   const products = await Product.find({}, null, { sort: { _id: -1 } })
     .skip(skip)
     .limit(productsPerPage);
 
-  // Count the total number of products
   const totalProducts = await Product.countDocuments();
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(totalProducts / productsPerPage);
 
   context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // Cache for 1 hour

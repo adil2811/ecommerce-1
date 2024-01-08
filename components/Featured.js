@@ -3,7 +3,7 @@ import {CartContext} from "/components/Cartcontexts";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
-import Image from 'next/image'; // Import the Next.js Image component
+import Image from 'next/image'; 
 
 
 
@@ -51,11 +51,11 @@ export default function Featured({product}) {
       <Image
               src={product.images[0]}
               alt={product?.alttitle}
-              width={500} // Set your preferred width
-              height={400} // Set your preferred height
-              layout="responsive" // Choose layout type
-              objectFit="cover" // Choose object-fit value
-              loading="lazy" // Set priority to true for above-the-fold image
+              width={500} 
+              height={400} 
+              layout="responsive" 
+              objectFit="cover" 
+              loading="lazy"
             />
                 </div>
     </div>

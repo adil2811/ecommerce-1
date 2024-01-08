@@ -14,7 +14,7 @@ export default function Yourorder() {
             .get(`/api/getUserOrders?userEmail=${session.user.email}`)
             .then(response => {
               setOrders(response.data);
-              console.log(response.data); // Log the fetched orders here
+              console.log(response.data); 
             })
             .catch(error => {
               console.error('Error fetching user orders:', error);

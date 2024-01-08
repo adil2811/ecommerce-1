@@ -69,7 +69,7 @@ const Login = () => {
 async function  removewishlist() {
   const isAlreadyInWishlist = wishlistProducts.includes(_id);
 
-  setBtnState(!isAlreadyInWishlist); // Toggle btnState
+  setBtnState(!isAlreadyInWishlist); 
 
   if (isAlreadyInWishlist) {
     removeFromWishlist(_id);
@@ -77,9 +77,8 @@ async function  removewishlist() {
     addToWishlist(_id);
   }
 
-  setWishlistState([...wishlistState]); // Trigger re-render
+  setWishlistState([...wishlistState]); 
 
-  // console.log(wishlistProducts)
 
   axios.put('/api/updatewishlist', { userId, wishlistProducts })
   .then(response => {

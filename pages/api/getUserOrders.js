@@ -3,7 +3,7 @@ import { Order } from "@/models/Order";
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
-    return res.status(405).end(); // Method Not Allowed
+    return res.status(405).end(); 
   }
 
   const { userEmail } = req.query;
@@ -11,9 +11,8 @@ export default async function handler(req, res) {
   try {
     await mongooseConnect();
 
-    // Find orders for the user, sorted by a timestamp field (e.g., createdAt) in descending order
     const orders = await Order.find({ email: userEmail })
-      .sort({ createdAt: -1 }) // This sorts by createdAt in descending order
+      .sort({ createdAt: -1 }) 
       .exec();
 
     res.status(200).json(orders);

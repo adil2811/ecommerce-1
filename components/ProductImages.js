@@ -48,7 +48,6 @@ export default function ProductImages({ images, alt  }) {
     <>
       <ImageWrapper>
         <BigImage>
-          {/* Use Next.js Image component for the big image */}
           <Image className=" " src={activeImage} layout="fill" objectFit="contain" alt={alt} />
         </BigImage>
       </ImageWrapper>
@@ -60,7 +59,6 @@ export default function ProductImages({ images, alt  }) {
             onClick={() => setActiveImage(image)}
             alt={alt}
           >
-            {/* Use Next.js Image component for the thumbnail images */}
             <Image src={image} width={40} height={40} alt="" />
           </ImageButton>
         ))}

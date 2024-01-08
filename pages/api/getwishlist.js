@@ -7,17 +7,14 @@ export default async function handler(req, res) {
     try {
       await mongooseConnect();
 
-      // Get the user's session
       const session = await getSession({ req });
 
-      // Check if user is authenticated
       if (!session?.user) {
         return res.status(401).json({ error: 'Unauthorized' });
       }
 
       const userId = session.user._id;
 
-      // Find the user by ID and populate the wishlist field
       const user = await User.findById(userId).populate('wishlist');
 
       if (!user) {

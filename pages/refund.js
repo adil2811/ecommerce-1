@@ -156,7 +156,6 @@ By using our services and products, you acknowledge that you have read, understo
 
             <hr className=" my-7 bg-gray-200" />
 
-            {/* Tracking Section */}
 
             <div>
                 <div className=" flex justify-between items-center cursor-pointer">

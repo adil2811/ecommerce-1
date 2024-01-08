@@ -9,18 +9,15 @@ export default async function handler(req, res) {
 
       const { name, email, password, wishlist } = req.body;
 
-      // Validate input data
       if (!name || !email || !password ) {
         return res.status(400).json({ error: 'Invalid input data' });
       }
 
-      // Check if the email is already in use
       const userExists = await User.findOne({ email });
       if (userExists) {
         return res.status(400).json({ error: 'User already exists' });
       }
 
-      // Create wishlist items and get their IDs
       const Wishlists = await Promise.all(
         wishlist.map(async (item) => {
           const createdItem = await Wishlist.create({ name: item });
@@ -28,12 +25,11 @@ export default async function handler(req, res) {
         })
       );
 
-      // Create the user with the associated wishlist items
       const user = await User.create({
         name,
         email,
         password,
-        wishlist: Wishlists, // Associate wishlist items with the user
+        wishlist: Wishlists, 
       });
 
       res.status(201).json({ user });

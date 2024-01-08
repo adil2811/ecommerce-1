@@ -62,13 +62,13 @@ useEffect(() => {
 
 async function  addWishList() {
   if (!session?.user) {
-    // Navigate to login page
-    router.push("/login"); // Update "/login" with your actual login page URL
+    
+    router.push("/login"); 
     return;
   }
   const isAlreadyInWishlist = wishlistProducts.includes(_id);
 
-  setBtnState(!isAlreadyInWishlist); // Toggle btnState
+  setBtnState(!isAlreadyInWishlist); 
 
   if (isAlreadyInWishlist) {
     removeFromWishlist(_id);
@@ -96,7 +96,7 @@ async function  addWishList() {
       });
   }
 
-  setWishlistState([...wishlistState]); // Trigger re-render
+  setWishlistState([...wishlistState]); 
 
   // console.log(wishlistProducts)
 

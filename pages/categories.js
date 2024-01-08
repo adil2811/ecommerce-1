@@ -4,9 +4,7 @@ import Filterpanel from "@/components/Filterpanel";
 import Header from "@/components/Header";
 import Searchbar1 from "@/components/Searchbar1";
 import List from "@/components/List";
-// import { mongooseConnect } from "@/lib/mongoose";
-// import { Product } from "/models/Product";
-import React, { useState } from "react"; // Import React and useState
+import React, { useState } from "react"; 
 import { useFilterContext } from "@/components/Filter_context";
 import Sort from "@/components/Sort";
 import Footer from "@/components/Footer";

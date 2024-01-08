@@ -8,14 +8,12 @@ export default async function handler(req, res) {
 
       const { userId, wishlistProducts } = req.body;
 
-      // Find the user by ID
       const user = await User.findById(userId);
 
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
 
-      // Update the user's wishlist
       user.wishlist = wishlistProducts;
       await user.save();
 

@@ -9,14 +9,13 @@ import Head from 'next/head';
 
 export default function BlogPage({ blog }) {
   function renderContentWithLineBreaks(content) {
-    const paragraphs = content.split('\n'); // Split content into paragraphs
+    const paragraphs = content.split('\n'); 
     return paragraphs.map((paragraph, index) => (
       <p key={index}>{paragraph}</p>
     ));
   }
   console.log(blog);
 
-  // Check if the blog data is available before rendering
   if (!blog) {
     return <div>Loading...</div>;
   }
@@ -32,14 +31,13 @@ export default function BlogPage({ blog }) {
       <Header />
       <div className="p-5 mx-auto sm:p-10 md:p-16 bg-black text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-          {/* Use the Next.js Image component */}
           <Image
             src={blog.images[0]}
             alt={blog.title}
-            width={1920} // Set your preferred width
-            height={1080} // Set your preferred height
-            layout="responsive" // Choose layout type
-            objectFit="cover" // Choose object-fit value
+            width={1920} 
+            height={1080} 
+            layout="responsive" 
+            objectFit="cover" 
             className=" sm:h-96 bg-gray-500"
           />
           <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-900">
@@ -84,7 +82,6 @@ export async function getServerSideProps(context) {
   const blog = await BlogPost.findById(id);
   context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // Cache for 1 hour
 
-  // Return the blog data as props
   return {
     props: {
       blog: blog ? JSON.parse(JSON.stringify(blog)) : null,

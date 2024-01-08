@@ -1,11 +1,11 @@
 // pages/api/wishlist.js
 
 import {mongooseConnect} from "@/lib/mongoose";
-import Wishlist from "@/models/Wishlist"; // Assuming you have a Wishlist model/schema
+import Wishlist from "@/models/Wishlist"; 
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).end(); // Method Not Allowed
+    return res.status(405).end(); 
   }
 
   const { wishlistProducts } = req.body;
@@ -14,7 +14,6 @@ export default async function handler(req, res) {
   await mongooseConnect();
 
 
-    // Save wishlist data to the database
     const Wishlists = await Wishlist.create({
       products: wishlistProducts,
 

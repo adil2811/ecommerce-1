@@ -20,7 +20,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = useState(null); // Initialize with null
+  const [error, setError] = useState(null); 
 
 
  
@@ -47,7 +47,7 @@ const Register = () => {
       progress: undefined,
       theme: "colored",
       });
-      return; // Exit the function if validation fails
+      return; 
     }
   }
     try {
@@ -57,7 +57,7 @@ const Register = () => {
         name,
         email,
         password,
-        wishlist: wishlistProducts, // Add wishlist items to the payload
+        wishlist: wishlistProducts, 
 
 
       });
@@ -79,7 +79,7 @@ const Register = () => {
 
     }  catch (error) {
       console.log("Signup failed", error.message);
-      setError("Invalid email or Already logged in"); // Set the error message
+      setError("Invalid email or Already logged in"); 
 
       
 
